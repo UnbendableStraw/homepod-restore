@@ -50,7 +50,7 @@ idevicerestore -d -e PATH_TO_.ipsw
 
 ## Building your own IPSW
 
-If you want to try building an .ipsw yourself, accomplish the prerequisites, then:
+If you want to try building an .ipsw yourself, accomplish the prerequisites first. This may be easier in the future. For now:
 
 1. Download ./makeipsw.sh from tihmstar's repo: https://github.com/tihmstar/homepodstuff
 2. `mkdir -p _httpserver/firmware/AudioAccessory1,1/0x7000`
