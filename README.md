@@ -8,6 +8,10 @@ Note: When 17.5 becomes unsigned, a new .ipsw will need to be rebuilt. We will t
 
 ### Prerequisites:
 
+p.0. you need a usb connection to your homepod. the port on the pod is under the rubber base. remove the base by wedging your fingers between the base and mesh, pry it straight off. no heat necessary. 
+
+p.0.0. see el1ng's repo for info on crafting your own usb cable: https://github.com/el1ng/homepwn
+
 p.1. you need a mac (tested on apple silicon)
 
 p.2. your homepod needs to show as recovery mode on your mac when powered on right-side up, not DFU mode. otherwise, it's likely a hw issue.
