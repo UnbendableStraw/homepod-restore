@@ -53,9 +53,14 @@ idevicerestore -d -e PATH_TO_.ipsw
 If you want to try building an .ipsw yourself, accomplish the prerequisites, then:
 
 1. Download ./makeipsw.sh from tihmstar's repo: https://github.com/tihmstar/homepodstuff
-2. `chmod +x makeipsw.sh`
-3. `git checkout homepod`
-5. `./makeipsw.sh PATH_TO_HOMEPOD_OTA.zip PATH_TO_APPLETV.ipsw PATH_TO_OUTPUT.ipsw`
+2. `mkdir -p _httpserver/firmware/AudioAccessory1,1/0x7000`
+3. Download and put the `21L569` key file inside the 0x7000 folder
+4. `cd _httpserver`
+5. `python3 -m http.server 8888`
+6. leave the python http server running, and open a new terminal
+7. `chmod +x makeipsw.sh`
+8. `git checkout homepod` 
+9. `./makeipsw.sh PATH_TO_HOMEPOD_OTA.zip PATH_TO_APPLETV.ipsw PATH_TO_OUTPUT.ipsw`
 * Point the first path to the latest signed, FULL ota for AudioAccessory1,1
 * Point the second path to the latest signed, FULL ipsw for AppleTV5,3
 * Point the last path to where you want your ipsw to be output, along with a name (like ~\Desktop\nic\homepod.ipsw)
