@@ -1,4 +1,5 @@
 # How to restore the first generation A1639 Apple HomePod!
+## Work In Progress
 
 Download the latest IPSW here: https://nicsfix.com/ipsw/pod17.5.ipsw
 
