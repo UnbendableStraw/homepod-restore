@@ -15,7 +15,7 @@ p.0.0. see el1ng's repo for info on crafting your own usb cable: https://github.
 
 p.1. you need a mac (tested on apple silicon)
 
-p.2. your homepod needs to show as recovery mode on your mac when powered on right-side up, not DFU mode. otherwise, it's likely a hw issue.
+p.2. your homepod needs to show as recovery mode on your mac when powered on oriented normally. If it never connects in Recovery Mode, or it only gives DFU mode, it's likely a hw issue.
 
 p.3. Homebrew <https://brew.sh/>
 
@@ -52,12 +52,12 @@ idevicerestore -d -e PATH_TO_.ipsw
 
 If you want to try building an .ipsw yourself, accomplish the prerequisites first. This may be easier in the future. For now:
 
-1. Download ./makeipsw.sh from tihmstar's repo: https://github.com/tihmstar/homepodstuff
-2. `mkdir -p _httpserver/firmware/AudioAccessory1,1/0x7000`
-3. Generate keys. This repo has key "21L569" for 17.5 attached for you to try. Put your key inside the 0x7000 folder
-4. `cd _httpserver`
-5. `python3 -m http.server 8888`
-6. leave the python http server running, and open a new terminal
+1. `mkdir -p _httpserver/firmware/AudioAccessory1,1/0x7000`
+2. Generate keys (details to come). This repo has key "21L569" for 17.5 attached for you to try. Put your key inside the 0x7000 folder
+3. `cd _httpserver`
+4. `python3 -m http.server 8888`
+5. leave the python http server running, and open a new terminal
+6. Download ./makeipsw.sh from tihmstar's repo: https://github.com/tihmstar/homepodstuff
 7. `chmod +x makeipsw.sh`
 8. `git checkout homepod` 
 9. `./makeipsw.sh PATH_TO_HOMEPOD_OTA.zip PATH_TO_APPLETV.ipsw PATH_TO_OUTPUT.ipsw`
