@@ -5,17 +5,13 @@ Download the latest IPSW here: https://nicsfix.com/ipsw/pod17.5.ipsw
 
 Note: When 17.5 becomes unsigned, a new .ipsw will need to be rebuilt. We will try to share new .ipsws here as old versions become unsigned. 
 
-
-
 ### Prerequisites:
 
 p.0. you need a usb connection to your homepod. the port on the pod is under the rubber base. remove the base by wedging your fingers between the base and mesh, pry it straight off. no heat necessary. 
 
-p.0.0. see tihmstar's repo for info on crafting your own usb dongle: https://github.com/tihmstar/homepwn/tree/main/homebreakout_3dprint
+p.0.0. while you can solder directly to the pins on the pod, it's not recommended, the pads are fragile. see tihmstar's repo for info on crafting your own usb dongle: https://github.com/tihmstar/homepwn/tree/main/homebreakout_3dprint
 
-p.0.1 image of basic USB pinout https://nicsfix.com/media/debug.jpg
-
-p.1. you need a mac (tested on apple silicon)
+p.1. you need a mac (tested on apple silicon, may work on intel)
 
 p.2. your homepod needs to show as recovery mode on your mac when powered on oriented normally. If it never connects in Recovery Mode, or it only gives DFU mode, it's likely a hw issue.
 
@@ -52,10 +48,12 @@ idevicerestore -d -e PATH_TO_.ipsw
 
 ## Building your own IPSW
 
-If you want to try building an .ipsw yourself, accomplish the prerequisites first. This may be easier in the future. For now:
+If you want to try building an .ipsw yourself, accomplish the prerequisites first. This may be easier in the future.
 
-1. `mkdir -p _httpserver/firmware/AudioAccessory1,1/0x7000`
-2. Generate keys (details to come). This repo has key "21L569" for 17.5 attached for you to try. Put your key inside the 0x7000 folder
+Download the desired signed, full OTA .zip for AudioAccessory1,1 (from ipsw.me), and the latest signed full .ipsw for AppleTV5,3
+
+1. Generate keys by unzipping your HomePod OTA, use img4tool to extract kbags, use gaster to decrypt kbags into keys to put in json file. This repo has key "21L569" for 17.5 attached for you to try. Put your key inside the 0x7000 folder 
+2. `mkdir -p _httpserver/firmware/AudioAccessory1,1/0x7000`
 3. `cd _httpserver`
 4. `python3 -m http.server 8888`
 5. leave the python http server running, and open a new terminal
