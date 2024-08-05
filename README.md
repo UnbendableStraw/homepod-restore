@@ -64,3 +64,12 @@ If you want to try building an .ipsw yourself, accomplish the prerequisites firs
 * Point the first path to the latest signed, FULL ota for AudioAccessory1,1 
 * Point the second path to the latest signed, FULL ipsw for AppleTV5,3 
 * Point the last path to where you want your ipsw to be output, along with a name (like ~\Desktop\nic\homepod.ipsw)
+
+
+### Credit
+Huge thanks to thimstar, and David Ryskalczyk, for making all of this happen. All I've done is test and put guides together! Consider donating to them if you found this helpful
+
+* https://github.com/tihmstar
+* https://www.patreon.com/tihmstar
+
+### Looking for more HomePod repairs? Visit https://nicsfix.com!
