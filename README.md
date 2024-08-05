@@ -58,9 +58,8 @@ If you want to try building an .ipsw yourself, accomplish the prerequisites firs
 * example: [this](https://ipsw.me/download/ota/AudioAccessory1,1/21L569?prerequisite=) for the ota.zip and [this](https://ipsw.me/download/AppleTV5,3/21L580) for the .ipsw file
 4. Download the `_keys_17.5_and_17.6.zip` from this repo. Currently working for 17.5 and 17.6 (new / self key generation coming soon to makeipsw.sh script)
 5. `chmod +x makeipsw.sh`
-6. `git checkout homepod`
-7. `brew reinstall ra1nsn0w` (to ensure you have the latest version)
-8. `./makeipsw.sh PATH_TO_HOMEPOD_OTA.zip PATH_TO_APPLETV.ipsw PATH_TO_OUTPUT.ipsw PATH_TO_KEYS.zip`
+6. `brew reinstall ra1nsn0w` (to ensure you have the latest version)
+7. `./makeipsw.sh PATH_TO_HOMEPOD_OTA.zip PATH_TO_APPLETV.ipsw PATH_TO_OUTPUT.ipsw PATH_TO_KEYS.zip`
 * Point the first path to the latest signed, FULL ota .zip for AudioAccessory1,1 file you downloaded
 * Point the second path to the latest signed, FULL .ipsw for AppleTV5,3 file you downloaded
 * Point the third path to where you want your ipsw to be output, along with a name (like ~\Desktop\nic\homepod.ipsw)
