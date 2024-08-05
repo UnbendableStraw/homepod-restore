@@ -36,36 +36,35 @@ brew install --HEAD ldid-procursus
 
 * allow any accessory connect prompts (pay attention to ones while running restore process too)
 
-2. run the following
+2. run the following, replacing YOUR.ipsw with the location of your .ipsw file
 
 ```
 gaster pwn
 gaster reset
-idevicerestore -d -e PATH_TO_.ipsw
+idevicerestore -d -e YOUR.ipsw
 ```
 
 * If you get an `Unable to restore devie` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work. If you consistently get `Possibly invalid iBec` error during restore, it's probably hardware failure (bga / nand)
 
-3. Be patient. Takes a few minutes. Once you see `Restore Complete` continue waiting about a minute. Then unplug power / usb, flip rightside up, reconnect power and wait for setup chime
+3. Be patient. Takes a few minutes. Once you see `Restore Complete` continue waiting about a minute. Then unplug power first, then usb, flip rightside up, reconnect power and wait for setup chime. At this point it can be set up and used like any other homepod. This does not break over the air updates or any features / functionality. 
 
 ## Building your own IPSW
 
-If you want to try building an .ipsw yourself, accomplish the prerequisites first. This may be easier in the future.
+If you want to try building an .ipsw yourself, accomplish the prerequisites first. This is actively being worked on to be made easier. 
 
-Download the desired signed, full OTA .zip for AudioAccessory1,1 (from ipsw.me), and the latest signed full .ipsw for AppleTV5,3
-
-1. Generate keys by unzipping your HomePod OTA, use img4tool to extract kbags, use gaster to decrypt kbags into keys to put in json file. This repo has key "21L569" for 17.5 attached for you to try. Put your key inside the 0x7000 folder 
-2. `mkdir -p _httpserver/firmware/AudioAccessory1,1/0x7000`
-3. `cd _httpserver`
-4. `python3 -m http.server 8888`
-5. leave the python http server running, and open a new terminal
-6. Download ./makeipsw.sh from tihmstar's repo: https://github.com/tihmstar/homepodstuff
-7. `chmod +x makeipsw.sh`
-8. `git checkout homepod` 
-9. `./makeipsw.sh PATH_TO_HOMEPOD_OTA.zip PATH_TO_APPLETV.ipsw PATH_TO_OUTPUT.ipsw`
-* Point the first path to the latest signed, FULL ota for AudioAccessory1,1 
-* Point the second path to the latest signed, FULL ipsw for AppleTV5,3 
-* Point the last path to where you want your ipsw to be output, along with a name (like ~\Desktop\nic\homepod.ipsw)
+1. Download the latest ./makeipsw.sh from [tihmstar's repo](https://github.com/tihmstar/homepodstuff)
+2. Download the desired signed, full OTA .zip for AudioAccessory1,1 (from ipsw.me)
+3. Download the same version of the signed full .ipsw for AppleTV5,3 (from ipsw.me)
+* example: [this](https://ipsw.me/download/ota/AudioAccessory1,1/21L569?prerequisite=) for the ota.zip and [this](https://ipsw.me/download/AppleTV5,3/21L580) for the .ipsw file
+4. Download the keys.zip from this repo. Currently working for 17.5 and 17.6 (new / self key generation coming soon to makeipsw.sh script)
+5. `chmod +x makeipsw.sh`
+6. `git checkout homepod`
+7. `brew reinstall ra1nsn0w` (to ensure you have the latest version)
+8. `./makeipsw.sh PATH_TO_HOMEPOD_OTA.zip PATH_TO_APPLETV.ipsw PATH_TO_OUTPUT.ipsw PATH_TO_KEYS.zip`
+* Point the first path to the latest signed, FULL ota .zip for AudioAccessory1,1 file you downloaded
+* Point the second path to the latest signed, FULL .ipsw for AppleTV5,3 file you downloaded
+* Point the third path to where you want your ipsw to be output, along with a name (like ~\Desktop\nic\homepod.ipsw)
+* Point the fourth path to where you downloaded the keys.zip file from this repo
 
 
 ### Credit
@@ -74,4 +73,5 @@ Huge thanks to thimstar, and David Ryskalczyk, for making all of this happen. Al
 * https://github.com/tihmstar
 * https://www.patreon.com/tihmstar
 
-### Looking for more HomePod repairs? Visit https://nicsfix.com!
+
+### Looking for more HomePod repairs? Visit https://nicsfix.com or join my discord server for more help at https://discord.gg/track44
