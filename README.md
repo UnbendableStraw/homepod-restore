@@ -11,7 +11,9 @@ Note: When 17.5 becomes unsigned, a new .ipsw will need to be rebuilt. We will t
 
 p.0. you need a usb connection to your homepod. the port on the pod is under the rubber base. remove the base by wedging your fingers between the base and mesh, pry it straight off. no heat necessary. 
 
-p.0.0. see el1ng's repo for info on crafting your own usb cable: https://github.com/el1ng/homepwn
+p.0.0. see tihmstar's repo for info on crafting your own usb dongle: https://github.com/tihmstar/homepwn/tree/main/homebreakout_3dprint
+
+p.0.1 image of basic USB pinout https://nicsfix.com/media/debug.jpg
 
 p.1. you need a mac (tested on apple silicon)
 
