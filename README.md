@@ -3,7 +3,7 @@
 
 Download the latest IPSW here: https://nicsfix.com/ipsw/pod17.5.ipsw
 
-When 17.5 becomes unsigned, a new .ipsw will need to be rebuilt. We will try to share new .ipsws here as old versions become unsigned. 
+When 17.5 becomes unsigned, a new .ipsw will need to be rebuilt. We will try to share new .ipsws here as old versions become unsigned, and everyone will be able to make their own soon!
 
 ### Prerequisites:
 
