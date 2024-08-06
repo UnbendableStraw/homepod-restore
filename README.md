@@ -11,7 +11,7 @@ When 17.5 / 17.6 becomes unsigned, a new .ipsw will need to be rebuilt. We will 
 
 p.0. you need a usb connection to your homepod. the port on the pod is under the rubber base. remove the base by wedging your fingers between the base and mesh, pry it straight off. no heat necessary. 
 
-p.0.0. while you can solder directly to the pins on the pod, it's not recommended, the pads are fragile. see [tihmstar's repo](https://github.com/tihmstar/homepwn/tree/main/homebreakout_3dprint) for info on crafting your own usb dongle! 
+p.0.0. while you can solder directly to the pins on the pod, it's not recommended, the pads are fragile. see [tihmstar's repo](https://github.com/tihmstar/homepwn) for info on crafting your own usb dongle! 
 
 p.0.0.0 avoid unplugging the pod side of the dongle while the pod is powered, since the pads are so close together you risk shorting and frying something. it's best to disconnect all power from pod before you unplug your dongle!
 
