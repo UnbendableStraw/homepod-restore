@@ -16,7 +16,7 @@ p.0. you need a usb connection to your homepod. the port on the pod is under the
 
 p.0.0. while you can solder directly to the pins on the pod, it's not recommended, the pads are fragile. see [tihmstar's repo](https://github.com/tihmstar/homepwn) for info on crafting your own usb dongle. you only need the four usb 2.0 wires for restoring. for troubleshooting hardware issues, you will need UART. 
 
-p.0.0.0 avoid removing / disturbing dongle while the pod is powered. the pads are close together with voltage next to data lines and you risk shorting and damaging something if mistakes are made. it's best to disconnect power from pod first, then unplug dongle usb, then remove dongle from pod
+p.0.0.0. avoid removing / disturbing dongle while the pod is powered. the pads are close together with voltage next to data lines and you risk shorting and damaging something if mistakes are made. it's best to disconnect power from pod first, then unplug dongle usb, then remove dongle from pod
 
 p.1. tested on apple silicon, may work on intel / linux with additional tweaks (reported issues on macos sequioa beta)
 
@@ -51,7 +51,10 @@ gaster reset
 idevicerestore -d -e YOUR.ipsw
 ```
 
-* If you get an `Unable to restore devie` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work. If you consistently get `Possibly invalid iBec` error during restore, it's probably hardware failure (bga / nand)
+* If the restore is unsuccessful, just try again! But...
+* If you get an `Unable to restore device` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work.
+* If you consistently get `Possibly invalid iBec` error, or `Waiting on NAND` during restore, it's probably hardware failure (bga / nand)
+* Basically, it _should_ restore successfully if it's purely a software brick, and your connection and cables to the homepod are good enough. 
 
 3. Be patient. Takes a few minutes. Once you see `Restore Complete` continue waiting about a minute. Then unplug power first, then usb, flip rightside up, reconnect power and wait for setup chime. At this point it can be set up and used like any other homepod. This does not break over the air updates or any features / functionality. 
 
