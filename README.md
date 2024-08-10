@@ -18,7 +18,7 @@ p.0.0. while you can solder directly to the pins on the pod, it's not recommende
 
 p.0.0.0. avoid removing / disturbing dongle while the pod is powered. the pads are close together with voltage next to data lines and you risk shorting and damaging something if mistakes are made. it's best to disconnect power from pod first, then unplug dongle usb, then remove dongle from pod
 
-p.1. tested on apple silicon, may work on intel / linux with additional tweaks (reported issues on macos sequioa beta)
+p.1. tested on apple silicon, may work on intel / linux with additional tweaks 
 
 p.2. your homepod should show as Recovery Mode on a connected computer when powered on oriented normally. If it never connects in Recovery Mode, or it only gives DFU mode, it's likely a hw issue, but you can still attempt to restore. this is just for reference, you will actually restore in DFU mode upside down. 
 
