@@ -14,7 +14,7 @@ You perform all of this at your own risk with no promises, guarantees, warranty,
 
 p.0. you need a usb connection to your homepod. the port on the pod is under the rubber base. remove the base by wedging your fingers between the base and mesh, pry it straight off. no heat necessary. 
 
-p.0.0. while you can solder directly to the pins on the pod, it's not recommended, the pads are fragile. see [tihmstar's repo](https://github.com/tihmstar/homepwn) for info on crafting your own usb dongle. you only need the four usb 2.0 wires for restoring. for troubleshooting hardware issues, you will need UART. 
+p.0.0. while you can solder directly to the pins on the pod, it's not recommended, the pads are fragile. see [tihmstar's repo](https://github.com/tihmstar/homepwn) for info on crafting your own usb dongle. you only need the four usb 2.0 wires for restoring. for troubleshooting hardware issues, you will need UART. I am now selling premade adapters [here!](https://nicsfix.com/shop]
 
 p.0.0.0. avoid removing / disturbing dongle while the pod is powered. the pads are close together with voltage next to data lines and you risk shorting and damaging something if mistakes are made. it's best to disconnect power from pod first, then unplug dongle usb, then remove dongle from pod
 
