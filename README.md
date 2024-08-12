@@ -12,7 +12,7 @@ You perform all of this at your own risk with no promises, guarantees, warranty,
 ## How to restore your HomePod
 ### Prerequisites
 
-p.0. you need a usb connection to your homepod. the port on the pod is under the rubber base. remove the base by wedging your fingers between the base and mesh, pry it straight off. no heat necessary. 
+p.0. you need a usb connection to your homepod. the port on the pod is under the rubber base. remove the base by wedging your fingers between the base and mesh, pry it straight off. no heat necessary. it will stick back on with no issues.
 
 p.0.0. while you can solder directly to the pins on the pod, it's not recommended, the pads are fragile. see [tihmstar's repo](https://github.com/tihmstar/homepwn) for info on crafting your own usb dongle. you only need the four usb 2.0 wires for restoring. for troubleshooting hardware issues, you will need UART. I am now selling premade adapters [here!](https://nicsfix.com/shop)
 
@@ -38,6 +38,7 @@ brew install --HEAD ldid-procursus
 Now you can restore homepods!
 
 ### Restore Steps
+#### Video guide soon!
 
 1. with pod powered off, connect homepod via usb to computer. then place homepod upside down. then power on homepod
 
