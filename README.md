@@ -24,6 +24,8 @@ p.2. your homepod should show as Recovery Mode on a connected computer when powe
 
 p.3. Homebrew <https://brew.sh/>
 
+p.3.0. after you install homebrew for the first time in your terminal, you will see "Next Steps, Run these two commands..." Run those two commands!! 
+
 p.4.
 ```
 brew tap d235j/ios-restore-tools
