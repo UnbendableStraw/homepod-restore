@@ -9,6 +9,7 @@ You perform all of this at your own risk with no promises, guarantees, warranty,
 
 17.5 (no longer signed): https://nicsfix.com/ipsw/pod17.5.ipsw
 
+##
 Video Guide: https://www.youtube.com/watch?v=VCm-ac8EmaE
 
 ## How to restore your HomePod
@@ -42,7 +43,6 @@ brew install --HEAD ldid-procursus
 Now you can restore homepods!
 
 ### Restore Steps
-#### Video guide soon!
 
 1. with pod powered off, connect homepod via usb to computer. then place homepod upside down. then power on homepod
 
