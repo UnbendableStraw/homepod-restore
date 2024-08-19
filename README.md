@@ -17,7 +17,7 @@ Video Guide: https://www.youtube.com/watch?v=VCm-ac8EmaE
 
 p.0. you need a usb connection to your homepod. the port on the pod is under the rubber base. remove the base by wedging your fingers between the base and mesh, pry it straight off. no heat necessary. it will stick back on with no issues.
 
-p.0.0. while you can solder directly to the pins on the pod, it's not recommended, the pads are fragile. You can [make your own adapter](https://github.com/UnbendableStraw/homepwn-simple) (based on [tihmstar's design](https://github.com/tihmstar/homepwn)) you only need the four usb 2.0 wires for restoring. for troubleshooting hardware issues, you will need UART. I am also selling premade adapters [here!](https://nicsfix.com/shop)
+p.0.0. while you can solder directly to the debug port on the pod, it's not recommended. the pads are fragile. You can [make your own adapter](https://github.com/UnbendableStraw/homepwn-simple) (based on [tihmstar's design](https://github.com/tihmstar/homepwn)) you only need the four usb 2.0 wires for restoring. for troubleshooting hardware issues, you will need UART. I am also selling premade adapters [here!](https://nicsfix.com/shop)
 
 p.0.0.0. avoid removing / disturbing dongle while the pod is powered. the pads are close together with voltage next to data lines and you risk shorting and damaging something if mistakes are made. it's best to disconnect power from pod first, then unplug dongle usb, then remove dongle from pod
 
@@ -55,7 +55,7 @@ gaster pwn
 gaster reset
 idevicerestore -d -e YOUR.ipsw
 ```
-
+* Do not disturb HomePod or cable during restore process
 * If the restore is unsuccessful, just try again! But...
 * If you get an `Unable to restore device` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work.
 * If you consistently get `Possibly invalid iBec` error, or `Waiting on NAND` during restore, it's probably hardware failure (bga / nand)
