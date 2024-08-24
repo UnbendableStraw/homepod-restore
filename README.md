@@ -60,7 +60,7 @@ idevicerestore -d -e YOUR.ipsw
 * If you get an `Unable to restore device` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work.
 * If you consistently get `Possibly invalid iBec` error, or `Waiting on NAND` during restore, it's probably hardware failure (bga / nand)
 * Basically, it _should_ restore successfully if it's purely a software brick, and your connection and cables to the homepod are good enough.
-* If you arent able to get a USB commection to your HomePod, look for any balled-up bits of adhesive keeping your adapter from aitting flush. You may need to clean all the black adhesive off the bottom of your homepod, to allow the adapter to make closer contact. 
+* If you arent able to get a USB commection to your HomePod, look for any balled-up bits of the black adhesive keeping your adapter from sitting flush. You may need to clean all the adhesive off the bottom of your homepod, to allow the adapter to make closer contact. 
 
 3. Be patient. Takes a few minutes. Once you see `Restore Complete` continue waiting about a minute. Then unplug power first, then usb, flip rightside up, reconnect power and wait for setup chime. At this point it can be set up and used like any other homepod. This does not break over the air updates or any features / functionality. 
 
