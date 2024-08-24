@@ -44,7 +44,9 @@ Now you can restore homepods!
 
 ### Restore Steps
 
-1. with pod powered off, connect homepod via usb to computer. then place homepod upside down. then power on homepod
+1. Place and keep your HomePod upside down, and connect the adapter to the homepod first. Then, plug the usb into computer. Only then, can you plug power into homepod. 
+
+* It is important you do this in order. Leave upside down. USB to PC first. Then Power to Pod. 
 
 * allow any accessory connect prompts (pay attention to ones while running restore process too)
 
