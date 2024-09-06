@@ -66,6 +66,23 @@ idevicerestore -d -e YOUR.ipsw
 
 3. Be patient. Takes a few minutes. Once you see `Restore Complete` continue waiting about a minute. Then unplug power first, then usb, flip rightside up, reconnect power and wait for setup chime. At this point it can be set up and used like any other homepod. This does not break over the air updates or any features / functionality. 
 
+> #### Note on ReverseProxy Timeout Messages
+>
+> You may see many repeating timeout messages like so:
+>
+> ```
+> ReverseProxy[Ctrl]: (status=3) Connect Request
+> ReverseProxy[Conn]: Got device identifier [redacted]
+> ReverseProxy[Conn]: (status=1) Ready
+> ReverseProxy[Conn]: Received Ping command, replying with Pong
+> ReverseProxy[Conn]: Connection closed
+> ReverseProxy[Conn]: (status=2) Terminated
+> No data to read (timeout)
+> ```
+>
+> This is normal and may take up to 10–15 minutes.
+
+
 ## How to build your own .ipsw
 
 If you want to try building an .ipsw yourself, accomplish the prerequisites first. This is actively being worked on to be made easier. 
