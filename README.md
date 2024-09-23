@@ -1,13 +1,9 @@
 # How to restore the first generation A1639 Apple HomePod!
-### Work In Progress
 ## Disclaimer
 
+READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING_**
+
 You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware will need repair. Approach with care
-
-##
-17.6: https://nicsfix.com/ipsw/17.6.ipsw
-
-17.5 (no longer signed): https://nicsfix.com/ipsw/pod17.5.ipsw
 
 ##
 Video Guide: https://www.youtube.com/watch?v=VCm-ac8EmaE
@@ -17,19 +13,19 @@ Video Guide: https://www.youtube.com/watch?v=VCm-ac8EmaE
 
 p.0. you need a usb connection to your homepod. the port on the pod is under the rubber base. remove the base by wedging your fingers between the base and mesh, pry it straight off. no heat necessary. it will stick back on with no issues.
 
-p.0.0. while you can solder directly to the debug port on the pod, it's not recommended. the pads are fragile. You can [make your own adapter](https://github.com/UnbendableStraw/homepwn-simple) (based on [tihmstar's design](https://github.com/tihmstar/homepwn)) you only need the four usb 2.0 wires for restoring. for troubleshooting hardware issues, you will need UART. I am also selling premade adapters [here!](https://nicsfix.com/shop)
+p.0.0. while you can solder directly to the debug port on the pod, it's not recommended. the pads are fragile. You can [make your own adapter](https://github.com/UnbendableStraw/homepwn-simple) (based on [tihmstar's design](https://github.com/tihmstar/homepwn)) you only need the four usb 2.0 wires for restoring. You can buy premade adapters [here!](https://nicsfix.com/shop)
 
-p.0.0.0. avoid removing / disturbing dongle while the pod is powered. the pads are close together with voltage next to data lines and you risk shorting and damaging something if mistakes are made. it's best to disconnect power from pod first, then unplug dongle usb, then remove dongle from pod
+p.0.0.0. do not disturb your dongle, homepod, or any part of the USB cable during restore. the pads are close together with voltage next to data lines and you risk shorting and damaging something if mistakes are made. when unplugging things, it's best to disconnect power from pod first, then unplug dongle usb, then remove dongle from pod
 
-p.1. tested on apple silicon, may work on intel / linux with additional tweaks 
+p.1. this guide was tested on Apple Silicon with MacOS. It _should_ work on Intel / Windows / Linux, but do not ask me for help, ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working and submit a pull request.
 
-p.2. your homepod should show as Recovery Mode on a connected computer when powered on oriented normally. If it never connects in Recovery Mode, or it only gives DFU mode, it's likely a hw issue, but you can still attempt to restore. this is just for reference, you will actually restore in DFU mode upside down. 
+p.2. A currently signed .ipsw file. You can download 17.6 here: https://nicsfix.com/ipsw/17.6.ipsw
 
 p.3. Homebrew <https://brew.sh/>
 
-p.3.0. after you install homebrew for the first time in your terminal, you will see "Next Steps, Run these two commands..." Run those two commands!! 
+p.3.0. On some Macs, **after you install homebrew for the first time in your terminal, you will see "Next Steps, Run these two commands..." Run those two commands!!**
 
-p.4.
+p.4. Run these, all at once or one at a time does not matter.
 ```
 brew tap d235j/ios-restore-tools
 brew install --HEAD libimobiledevice-glue
@@ -40,35 +36,38 @@ brew install --HEAD gaster
 brew install --HEAD ldid-procursus
 ```
 
-Now you can restore homepods!
+If you get no errors (warnings are OK!) then you are ready to restore homepods!
 
 ### Restore Steps
 
-1. Place and keep your HomePod upside down, and connect the adapter to the homepod first. Then, plug the usb into computer. Only then, can you plug power into homepod. 
+1. IN ORDER: Place and keep your HomePod upside down. Then, connect the adapter to the homepod. Then, plug the usb cable into computer. Only then, can you plug power into homepod. 
 
 * It is important you do this in order. Leave upside down. USB to PC first. Then Power to Pod. 
 
-* allow any accessory connect prompts (pay attention to ones while running restore process too)
+* Some macs will have accessory connect prompts along the way, Allow them! (pay attention to ones while running restore process too)
 
-2. run the following, replacing YOUR.ipsw with the location of your .ipsw file
+2. run the following, replacing YOUR.ipsw with the location of your .ipsw file. You can also drag your .ipsw file into your terminal window to populate it's path. 
 
 ```
 gaster pwn
 gaster reset
 idevicerestore -d -e YOUR.ipsw
 ```
-* Do not disturb HomePod or cable during restore process
-* If the restore is unsuccessful, just try again! But...
+* Do not disturb HomePod or cable during restore process 
+
+3. Be patient. It can take up to 10-15 minutes. Once you see `Restore Complete` continue waiting about a minute, then you'll see it reconnect in DFU mode again. You can now unplug power, then usb, then remove adapter from homepod, flip rightside up, reconnect power and wait for setup chime.
+
+Now you can set it up and use like any other homepod! This does not break over the air updates or any features / functionality. 
+
+## Troubleshooting
+
+If the restore is unsuccessful, just try again! But...
 * If you get an `Unable to restore device` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work.
 * If you consistently get `Possibly invalid iBec` error, or `Waiting on NAND` during restore, it's probably hardware failure (bga / nand)
 * Basically, it _should_ restore successfully if it's purely a software brick, and your connection and cables to the homepod are good enough.
-* If you arent able to get a USB commection to your HomePod, look for any balled-up bits of the black adhesive keeping your adapter from sitting flush. You may need to clean all the adhesive off the bottom of your homepod, to allow the adapter to make closer contact. 
+* If you arent able to get a USB commection to your HomePod, look for any balled-up bits of the black adhesive keeping your adapter from sitting flush. You may need to clean all the adhesive off the bottom of your homepod, to allow the adapter to make closer contact.
 
-3. Be patient. Takes a few minutes. Once you see `Restore Complete` continue waiting about a minute. Then unplug power first, then usb, flip rightside up, reconnect power and wait for setup chime. At this point it can be set up and used like any other homepod. This does not break over the air updates or any features / functionality. 
-
-> #### Note on ReverseProxy Timeout Messages
->
-> You may see many repeating timeout messages like so:
+* You may see many repeating timeout messages like so:
 >
 > ```
 > ReverseProxy[Ctrl]: (status=3) Connect Request
@@ -78,14 +77,16 @@ idevicerestore -d -e YOUR.ipsw
 > ReverseProxy[Conn]: Connection closed
 > ReverseProxy[Conn]: (status=2) Terminated
 > No data to read (timeout)
+> No data to read (timeout)
+> No data to read (timeout)
 > ```
 >
-> This is normal and may take up to 10–15 minutes.
+This is normal and may take up to 10–15 minutes.
 
 
 ## How to build your own .ipsw
 
-If you want to try building an .ipsw yourself, accomplish the prerequisites first. This is actively being worked on to be made easier. 
+You don't need to do thi, only if you want to try building an .ipsw yourself. Accomplish the prerequisites first. This is actively being worked on to be made easier. 
 
 1. Download the latest ./makeipsw.sh from [tihmstar's repo](https://github.com/tihmstar/homepodstuff)
 2. Download the desired signed, full OTA .zip for AudioAccessory1,1 (from ipsw.me). You need the one with the full ramdisk (usually the largest one with no prerequisites)
