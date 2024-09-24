@@ -3,6 +3,8 @@
 
 READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING_**
 
+**Heads up! Currently there are no signed versions to restore with! Check back in the next few days for 18.0+**
+
 You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware will need repair. Approach with care
 
 ##
