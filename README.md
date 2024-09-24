@@ -1,4 +1,4 @@
-# How to restore the first generation A1639 Apple HomePod!
+# How to restore the first generation A1639 Apple HomePod! 
 ## Disclaimer
 
 READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING_**
@@ -19,7 +19,7 @@ p.0.0.0. do not disturb your dongle, homepod, or any part of the USB cable durin
 
 p.1. this guide was tested on Apple Silicon with MacOS. It _should_ work on Intel / Windows / Linux, but do not ask me for help, ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working and submit a pull request.
 
-p.2. A currently signed .ipsw file. You can download 17.6 here: https://nicsfix.com/ipsw/17.6.ipsw
+p.2. A currently signed .ipsw file. **17.6 just became unsigned, please hang tight while we build 18.0 and check back soon for a download link**
 
 p.3. Homebrew <https://brew.sh/>
 
