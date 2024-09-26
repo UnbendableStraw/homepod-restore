@@ -26,9 +26,9 @@ p.2. A currently signed .ipsw file. Download mine at https://nicsfix.com/ipsw/18
 
 p.3. Homebrew <https://brew.sh/>
 
-p.3.0. On some Macs, **after you install homebrew for the first time in your terminal, you will see "Next Steps, Run these two commands..." Run those two commands!!**
+p.3.0. **_On some Macs, after you install homebrew for the first time in your terminal, you will see "Next Steps, Run these two commands..." Run those two commands!!_**
 
-p.4. Run these, all at once or one at a time does not matter.
+p.4. Now run these commands, one at a time:
 ```
 brew tap d235j/ios-restore-tools
 brew install --HEAD libimobiledevice-glue
