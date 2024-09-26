@@ -1,9 +1,10 @@
 # How to restore the first generation A1639 Apple HomePod! 
 ## Disclaimer
 
-READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING_**
+**HEADS UP! idevicerestore introduced a bug that breaks restoring 18.0 to OG HomePods. You can hang tight while it's fixed, or figure out how to install and use idevicerestore specifically from commit d2e1c4f
 
-**Heads up! Currently there are no signed versions to restore with! Check back in the next few days for 18.0+**
+
+READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING_**
 
 You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware will need repair. Approach with care
 
@@ -21,7 +22,7 @@ p.0.0.0. do not disturb your dongle, homepod, or any part of the USB cable durin
 
 p.1. this guide was tested on Apple Silicon with MacOS. It _should_ work on Intel / Windows / Linux, but do not ask me for help, ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working and submit a pull request.
 
-p.2. A currently signed .ipsw file. **17.6 just became unsigned, please hang tight while we build 18.0 and check back soon for a download link**
+p.2. A currently signed .ipsw file. Download mine at https://nicsfix.com/18.0.ipsw or build your own. 
 
 p.3. Homebrew <https://brew.sh/>
 
