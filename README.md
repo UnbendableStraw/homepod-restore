@@ -1,7 +1,7 @@
 # How to restore the first generation A1639 Apple HomePod! 
 ## Disclaimer
 
-**HEADS UP! idevicerestore introduced a bug that breaks restoring 18.0 to OG HomePods. You can hang tight while it's fixed, or figure out how to install and use idevicerestore specifically from commit d2e1c4f
+**HEADS UP! idevicerestore introduced a bug that breaks restoring 18.0 to OG HomePods. You can hang tight while it's fixed, or figure out how to install and use idevicerestore specifically from commit d2e1c4f**
 
 
 READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING_**
