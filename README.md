@@ -28,7 +28,7 @@ p.3. Homebrew <https://brew.sh/>
 
 p.3.0. **_On some Macs, after you install homebrew for the first time in your terminal, you will see "Next Steps, Run these two commands..." Run those two commands!!_**
 
-p.4. Now run these commands, one at a time:
+p.4. Now run these commands, one at a time. This taps David's repo, then installs the necessary restore tools:
 ```
 brew tap d235j/ios-restore-tools
 brew install --HEAD libimobiledevice-glue
@@ -39,7 +39,7 @@ brew install --HEAD gaster
 brew install --HEAD ldid-procursus
 ```
 
-If you get no errors (warnings are OK!) then you are ready to restore homepods!
+If you get no errors (warnings are OK) then you are ready to restore homepods!
 
 ### Restore Steps
 
