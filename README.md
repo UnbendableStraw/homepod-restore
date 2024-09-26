@@ -45,11 +45,11 @@ If you get no errors (warnings are OK) then you are ready to restore homepods!
 
 1. IN ORDER: Place and keep your HomePod upside down. Then, connect the adapter to the homepod. Then, plug the usb cable into computer. Only then, can you plug power into homepod. 
 
-* It is important you do this in order. Leave upside down. USB to PC first. Then Power to Pod. 
+* It is important you do this in order. Keep pod upside down. USB to PC first. Then power to pod. 
 
-* Some macs will have accessory connect prompts along the way, Allow them! (pay attention to ones while running restore process too)
+* Some macs will have "Allow Accessory to Connect" prompts along the way, Allow them! Pay attention to more prompts while running restore process, too.
 
-2. run the following, replacing YOUR.ipsw with the location of your .ipsw file. You can also drag your .ipsw file into your terminal window to populate it's path. 
+2. Run the following three commands one at a time, replacing YOUR.ipsw with the location of your .ipsw file. You can drag your .ipsw file from Finder into your Terminal window to populate it's path. 
 
 ```
 gaster pwn
@@ -64,7 +64,12 @@ Now you can set it up and use like any other homepod! This does not break over t
 
 ## Troubleshooting
 
-If the restore is unsuccessful, just try again! But...
+If the restore is unsuccessful, try again from Restore Step 1. Usually though, errors are caused by faulty hardware, bad connection to the homepod, or you didn't do something right.
+
+* Is your homepod upside down?
+* Did you connect USB first, then connect power to pod?
+* Did you run `gaster pwn`, then `gaster reset`, then `idevicerestore -d -e YOUR.ipsw` all while your HomePod was connected, on, and upside down?
+* Restart your computer and try again from Restore Step 1.
 * If you get an `Unable to restore device` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work.
 * If you consistently get `Possibly invalid iBec` error, or `Waiting on NAND` during restore, it's probably hardware failure (bga / nand)
 * Basically, it _should_ restore successfully if it's purely a software brick, and your connection and cables to the homepod are good enough.
