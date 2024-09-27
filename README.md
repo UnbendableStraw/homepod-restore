@@ -41,8 +41,6 @@ make
 sudo make install
 ```
 
-```
-
 If you get no errors (warnings are OK) then you are ready to restore homepods!
 
 ### Restore Steps
