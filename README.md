@@ -91,6 +91,19 @@ If the restore is unsuccessful, try again from Restore Step 1. Usually though, e
 >
 This is normal and may take up to 10–15 minutes.
 
+### Workaround for SHSH Blobs error with 18.0:
+```
+brew uninstall d235j/ios-restore-tools/idevicerestore
+git clone https://github.com/libimobiledevice/idevicerestore.git 
+cd idevicerestore
+git checkout d2e1c4f
+./autogen.sh
+make
+sudo make install
+```
+
+Now you can attempt a restore from Restore Step 1. 
+
 
 ## How to build your own .ipsw
 
