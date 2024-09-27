@@ -1,9 +1,6 @@
 # How to restore the first generation A1639 Apple HomePod! 
 ## Disclaimer
 
-**HEADS UP! idevicerestore introduced a bug that breaks restoring 18.0 to OG HomePods. You can hang tight while it's fixed, or figure out how to install and use idevicerestore specifically from commit d2e1c4f**
-
-
 READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING_**
 
 You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware will need repair. Approach with care
@@ -28,15 +25,22 @@ p.3. Homebrew <https://brew.sh/>
 
 p.3.0. **_On some Macs, after you install homebrew for the first time in your terminal, you will see "Next Steps, Run these two commands..." Run those two commands!!_**
 
-p.4. Now run these commands, one at a time. This taps David's repo, then installs the necessary restore tools:
+p.4. Now run these commands, one at a time. This taps David's repo, then installs the necessary restore tools. For now, we are also installing a specific version of idevicerestore to workaround a bug in the latest version:
 ```
 brew tap d235j/ios-restore-tools
 brew install --HEAD libimobiledevice-glue
 brew install --HEAD d235j/ios-restore-tools/libimobiledevice
 brew install --HEAD libirecovery
-brew install --HEAD idevicerestore
 brew install --HEAD gaster
 brew install --HEAD ldid-procursus
+git clone https://github.com/libimobiledevice/idevicerestore.git 
+cd idevicerestore
+git checkout d2e1c4f
+./autogen.sh
+make
+sudo make install
+```
+
 ```
 
 If you get no errors (warnings are OK) then you are ready to restore homepods!
@@ -90,19 +94,6 @@ If the restore is unsuccessful, try again from Restore Step 1. Usually though, e
 > ```
 >
 This is normal and may take up to 10–15 minutes.
-
-### Workaround for SHSH Blobs error with 18.0:
-```
-brew uninstall d235j/ios-restore-tools/idevicerestore
-git clone https://github.com/libimobiledevice/idevicerestore.git 
-cd idevicerestore
-git checkout d2e1c4f
-./autogen.sh
-make
-sudo make install
-```
-
-Now you can attempt a restore from Restore Step 1. 
 
 
 ## How to build your own .ipsw
