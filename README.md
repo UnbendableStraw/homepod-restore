@@ -3,7 +3,7 @@
 
 READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING_**
 
-You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware will need repair. Approach with care
+You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware will need repair. Approach with care.
 
 ##
 Video Guide: https://www.youtube.com/watch?v=VCm-ac8EmaE
@@ -96,7 +96,7 @@ This is normal and may take up to 10–15 minutes.
 
 ## How to build your own .ipsw
 
-You don't need to do thi, only if you want to try building an .ipsw yourself. Accomplish the prerequisites first. This is actively being worked on to be made easier. 
+You don't need to do this, only if you want to try building an .ipsw yourself. Accomplish the prerequisites first. This is actively being worked on to be made easier. 
 
 1. Download the latest ./makeipsw.sh from [tihmstar's repo](https://github.com/tihmstar/homepodstuff)
 2. Download the desired signed, full OTA .zip for AudioAccessory1,1 (from ipsw.me). You need the one with the full ramdisk (usually the largest one with no prerequisites)
