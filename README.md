@@ -68,7 +68,7 @@ Now you can set it up and use like any other homepod. This does not break over t
 
 If the restore is unsuccessful, try again from Restore Step 1. Usually though, errors are caused by faulty hardware, bad connection to the homepod, or you didn't do something right.
 
-* If you get an error "Unable to get SHSH blobs for this device" you are likely using an incompatible version of idevicerestore. If you intsalled it with `brew install --HEAD idevicerestore`, then uninstall it with `brew uninstall d235j/ios-restore-tools/idevicerestore` and install the specific version in Prerequisite Step 4.
+* If you get an error about "Unable to get SHSH blobs for this device" or "This device isn't eligible", you are likely using an incompatible version of idevicerestore. If you intsalled it with `brew install --HEAD idevicerestore`, then uninstall it with `brew uninstall d235j/ios-restore-tools/idevicerestore` and install the specific version in Prerequisite Step 4.
 * Is your homepod upside down while attempting all of this?
 * Did you connect the HomePod's USB first, then connect power to HomePod?
 * Did you run `gaster pwn`, then `gaster reset`, then `idevicerestore -d -e YOUR.ipsw` all while your HomePod was connected, on, and upside down?
