@@ -109,7 +109,7 @@ You don't need to do this, only if you want to try building an .ipsw yourself. A
 7. `./makeipsw.sh PATH_TO_homepod_OTA.zip PATH_TO_APPLETV.ipsw PATH_TO_OUTPUT.ipsw PATH_TO_firmware_keys.zip`
 * Point the first path to the latest signed, FULL ota .zip for AudioAccessory1,1 file you downloaded
 * Point the second path to the latest signed, FULL .ipsw for AppleTV5,3 file you downloaded
-* Point the third path to where you want your .ipsw to be output, along with a name (like ~\Desktop\nic\HomePod.ipsw)
+* Point the third path to where you want your .ipsw to be output, along with a name (like ~\Desktop\nic\homepod.ipsw)
 * Point the fourth path to where you downloaded the keys.zip file from this repo
 
 
