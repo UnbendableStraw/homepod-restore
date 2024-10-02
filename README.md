@@ -11,19 +11,19 @@ Video Guide: https://www.youtube.com/watch?v=VCm-ac8EmaE
 ## How to restore your HomePod
 ### Prerequisites
 
-p.0. you need a usb connection to your homepod. the port on the pod is under the rubber base. remove the base by wedging your fingers between the base and mesh, pry it straight off. no heat necessary. it will stick back on with no issues.
+p.0. You need a usb connection to your homepod. the port on the pod is under the rubber base. remove the base by wedging your fingers between the base and mesh, pry it straight off. no heat necessary. it will stick back on with no issues.
 
-p.0.0. while you can solder directly to the debug port on the pod, it's not recommended. the pads are fragile. You can [make your own adapter](https://github.com/UnbendableStraw/homepwn-simple) (based on [tihmstar's design](https://github.com/tihmstar/homepwn)) you only need the four usb 2.0 wires for restoring. You can buy premade adapters [here!](https://nicsfix.com/shop)
+p.0.0. While you can solder directly to the debug port on the pod, it's not recommended. the pads are fragile. You can [make your own adapter](https://github.com/UnbendableStraw/homepwn-simple) (based on [tihmstar's design](https://github.com/tihmstar/homepwn)) you only need the four usb 2.0 wires for restoring. You can buy premade adapters [here!](https://nicsfix.com/shop)
 
-p.0.0.0. do not disturb your dongle, homepod, or any part of the USB cable during restore. the pads are close together with voltage next to data lines and you risk shorting and damaging something if mistakes are made. when unplugging things, it's best to disconnect power from pod first, then unplug dongle usb, then remove dongle from pod
+p.0.0.0. Do not disturb your dongle, homepod, or any part of the USB cable during restore. the pads are close together with voltage next to data lines and you risk shorting and damaging something if mistakes are made. when unplugging things, it's best to disconnect power from pod first, then unplug dongle usb, then remove dongle from pod.
 
-p.1. this guide was tested on Apple Silicon with MacOS. It _should_ work on Intel / Windows / Linux, but do not ask me for help, ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working and submit a pull request.
+p.1. This guide was tested on Apple Silicon with MacOS. It _should_ work on Intel / Windows / Linux, but do not ask me for help, ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working and submit a pull request.
 
 p.2. A currently signed .ipsw file. Download mine at https://nicsfix.com/ipsw/18.0.ipsw or build your own. 
 
 p.3. Homebrew <https://brew.sh/>
 
-p.3.0. **_On some Macs, after you install homebrew for the first time in your terminal, you will see "Next Steps, Run these two commands..." Run those two commands!!_**
+**Note: _On some Macs, after you install homebrew for the first time in your terminal, you will see "Next Steps, Run these two commands..." Run those two commands!!_**
 
 p.4. Now run these commands, one at a time. This taps David's repo, then installs the necessary restore tools. For now, we are also installing a specific version of idevicerestore to workaround a bug in the latest version:
 ```
@@ -47,29 +47,30 @@ If you get no errors (warnings are OK) then you are ready to restore homepods!
 
 1. IN ORDER: Place and keep your HomePod upside down. Then, connect the adapter to the homepod. Then, plug the usb cable into computer. Only then, can you plug power into homepod. 
 
-* It is important you do this in order. Keep pod upside down. USB to PC first. Then power to pod. 
+  * * It is important you do this in order. Keep pod upside down. USB to PC first. Then power to pod. 
 
-* Some macs will have "Allow Accessory to Connect" prompts along the way, Allow them! Pay attention to more prompts while running restore process, too.
+  * * Some macs will have "Allow Accessory to Connect" prompts along the way, Allow them! Pay attention to more prompts while running restore process, too.
 
-2. Run the following three commands one at a time, replacing YOUR.ipsw with the location of your .ipsw file. You can drag your .ipsw file from Finder into your Terminal window to populate it's path. 
+2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can drag your .ipsw file from Finder into your Terminal window to populate it's path. 
 
 ```
 gaster pwn
 gaster reset
 idevicerestore -d -e YOUR.ipsw
 ```
-* Do not disturb HomePod or cable during restore process 
+* * Do not disturb HomePod or cable during restore process 
 
-3. Be patient. It can take up to 10-15 minutes. Once you see `Restore Complete` continue waiting about a minute, then you'll see it reconnect in DFU mode again. You can now unplug power, then usb, then remove adapter from homepod, flip rightside up, reconnect power and wait for setup chime.
+3. Be patient! It can take up to 10-15 minutes. Once you see `Restore Complete` continue waiting about a minute, then you'll see it reconnect in DFU mode again. You can now unplug power, then usb, then remove adapter from homepod, flip rightside up, reconnect power and wait for it to reboot a few times to initialize set-up!
 
-Now you can set it up and use like any other homepod! This does not break over the air updates or any features / functionality. 
+Now you can set it up and use like any other homepod. This does not break over the air updates or any features / functionality.
 
 ## Troubleshooting
 
 If the restore is unsuccessful, try again from Restore Step 1. Usually though, errors are caused by faulty hardware, bad connection to the homepod, or you didn't do something right.
 
-* Is your homepod upside down?
-* Did you connect USB first, then connect power to pod?
+* If you get an error "Unable to get SHSH blobs for this device" you are likely using an incompatible version of idevicerestore. If you intsalled it with `brew install --HEAD idevicerestore`, then uninstall it with `brew uninstall d235j/ios-restore-tools/idevicerestore` and install the specific version in Prerequisite Step 4.
+* Is your homepod upside down while attempting all of this?
+* Did you connect the HomePod's USB first, then connect power to HomePod?
 * Did you run `gaster pwn`, then `gaster reset`, then `idevicerestore -d -e YOUR.ipsw` all while your HomePod was connected, on, and upside down?
 * Restart your computer and try again from Restore Step 1.
 * If you get an `Unable to restore device` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work.
