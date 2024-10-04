@@ -103,7 +103,7 @@ You don't need to do this, only if you want to try building an .ipsw yourself. A
 2. Download the desired signed, full OTA .zip for AudioAccessory1,1 (from ipsw.me). You need the one with the full ramdisk (usually the largest one with no prerequisites)
 3. Download the same version of the signed full .ipsw for AppleTV5,3 (from ipsw.me)
 * example: [this](https://ipsw.me/download/ota/AudioAccessory1,1/21M71?prerequisite=) for the ota.zip and [this](https://ipsw.me/download/AppleTV5,3/21M71) for the .ipsw file
-4. Download the `firmware_keys.zip` from this repo. Currently working for 17.5 and 17.6 (new / self key generation coming soon to makeipsw.sh script)
+4. Download the `firmware_keys.zip` from this repo. Currently working for 17.5, 17.6, and 18.0. (new / self key generation coming soon to makeipsw.sh script)
 5. `chmod +x makeipsw.sh`
 6. `brew reinstall ra1nsn0w` (to ensure you have the latest version)
 7. `./makeipsw.sh PATH_TO_HOMEPOD_OTA.zip PATH_TO_APPLETV.ipsw PATH_TO_OUTPUT.ipsw PATH_TO_firmware_keys.zip`
