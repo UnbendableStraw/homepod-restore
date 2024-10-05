@@ -1,9 +1,9 @@
 # How to restore the first generation A1639 Apple HomePod! 
 ## Disclaimer
 
-READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING_**
+READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING!_** Then, re-read it again before you attempt an actual restore, as steps / software may have changed.
 
-You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware will need repair. Approach with care.
+You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware may need repair. Approach with care.
 
 ##
 Video Guide: https://www.youtube.com/watch?v=VCm-ac8EmaE
@@ -19,7 +19,7 @@ p.0.0.0. Do not disturb your dongle, HomePod, or any part of the USB cable durin
 
 p.1. This guide was tested on Apple Silicon with MacOS. It _should_ work on Intel / Windows / Linux, but do not ask me for help, ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working and submit a pull request.
 
-p.2. A currently signed .ipsw file. Download mine at https://nicsfix.com/ipsw/18.0.ipsw or build your own. 
+p.2. A currently signed .ipsw file. Download mine at https://nicsfix.com/ipsw/18.0.ipsw or, build your own using the steps at the bottom of the guide. 
 
 p.3. Homebrew <https://brew.sh/>
 
@@ -33,15 +33,15 @@ brew install --HEAD d235j/ios-restore-tools/libimobiledevice
 brew install --HEAD libirecovery
 brew install --HEAD gaster
 brew install --HEAD ldid-procursus
-git clone https://github.com/libimobiledevice/idevicerestore.git 
-cd idevicerestore
-git checkout d2e1c4f
-./autogen.sh
-make
-sudo make install
+brew install --HEAD idevicerestore
 ```
 
 If you get no errors (warnings are OK) then you are ready to restore HomePods!
+
+If you installed any of those brews prior to October 5 2024, you probably need to update them to restore with 18.0+, with something like:
+```
+brew reinstall idevicerestore
+```
 
 ### Restore Steps
 
@@ -68,7 +68,7 @@ Now you can set it up and use like any other HomePod. This does not break over t
 
 If the restore is unsuccessful, try again from Restore Step 1. Usually though, errors are caused by faulty hardware, bad connection to the HomePod, or you didn't do something right.
 
-* If you get an error about "Unable to get SHSH blobs for this device" or "This device isn't eligible", you are likely using an incompatible version of idevicerestore. If you intsalled it with `brew install --HEAD idevicerestore`, then uninstall it with `brew uninstall d235j/ios-restore-tools/idevicerestore` and install the specific version in Prerequisite Step 4.
+* If you get an error about "Unable to get SHSH blobs for this device" or "This device isn't eligible", you are likely using an old version of idevicerestore or an unsigned .ipsw. Try redownloading or rebuilding the .ipsw, and updating your dependancies with something like `brew reinstall idevicerestore`
 * Is your HomePod upside down while attempting all of this?
 * Did you connect the HomePod's USB first, then connect power to HomePod?
 * Did you run `gaster pwn`, then `gaster reset`, then `idevicerestore -d -e YOUR.ipsw` all while your HomePod was connected, on, and upside down?
@@ -81,12 +81,11 @@ If the restore is unsuccessful, try again from Restore Step 1. Usually though, e
 * You may see many repeating timeout messages like so:
 >
 > ```
-> ReverseProxy[Ctrl]: (status=3) Connect Request
-> ReverseProxy[Conn]: Got device identifier [redacted]
-> ReverseProxy[Conn]: (status=1) Ready
 > ReverseProxy[Conn]: Received Ping command, replying with Pong
 > ReverseProxy[Conn]: Connection closed
 > ReverseProxy[Conn]: (status=2) Terminated
+> No data to read (timeout)
+> No data to read (timeout)
 > No data to read (timeout)
 > No data to read (timeout)
 > No data to read (timeout)
