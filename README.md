@@ -33,15 +33,16 @@ brew install --HEAD d235j/ios-restore-tools/libimobiledevice
 brew install --HEAD libirecovery
 brew install --HEAD gaster
 brew install --HEAD ldid-procursus
-brew install --HEAD idevicerestore
+brew uninstall d235j/ios-restore-tools/idevicerestore
+git clone https://github.com/libimobiledevice/idevicerestore.git 
+cd idevicerestore
+git checkout d2e1c4f
+./autogen.sh
+make
+sudo make install
 ```
 
 If you get no errors (warnings are OK) then you are ready to restore HomePods!
-
-If you installed any of those brews prior to October 5 2024, you probably need to update them to restore with 18.0+, with something like:
-```
-brew reinstall idevicerestore
-```
 
 ### Restore Steps
 
@@ -68,7 +69,7 @@ Now you can set it up and use like any other HomePod. This does not break over t
 
 If the restore is unsuccessful, try again from Restore Step 1. Usually though, errors are caused by faulty hardware, bad connection to the HomePod, or you didn't do something right.
 
-* If you get an error about "Unable to get SHSH blobs for this device" or "This device isn't eligible", you are likely using an old version of idevicerestore or an unsigned .ipsw. Try redownloading or rebuilding the .ipsw, and updating your dependancies with something like `brew reinstall idevicerestore`
+* If you get an ERROR: about `Unable to get SHSH blobs for this device` or `This device isn't eligible` or `Unable to send iBEC to device`, you are likely using the wrong version of idevicerestore or an unsigned .ipsw. Try redownloading or rebuilding the .ipsw, and installing the specific version of idevicerestore mentioned in Prerequisite Step 4. 
 * Is your HomePod upside down while attempting all of this?
 * Did you connect the HomePod's USB first, then connect power to HomePod?
 * Did you run `gaster pwn`, then `gaster reset`, then `idevicerestore -d -e YOUR.ipsw` all while your HomePod was connected, on, and upside down?
