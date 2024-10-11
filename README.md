@@ -33,6 +33,7 @@ brew install --HEAD d235j/ios-restore-tools/libimobiledevice
 brew install --HEAD libirecovery
 brew install --HEAD gaster
 brew install --HEAD ldid-procursus
+brew install libzip
 brew uninstall d235j/ios-restore-tools/idevicerestore
 git clone https://github.com/libimobiledevice/idevicerestore.git 
 cd idevicerestore
