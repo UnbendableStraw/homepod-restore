@@ -19,7 +19,7 @@ p.0.0.0. Do not disturb your dongle, HomePod, or any part of the USB cable durin
 
 p.1. This guide was tested on Apple Silicon with MacOS. It _should_ work on Intel / Windows / Linux, but do not ask me for help, ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working and submit a pull request.
 
-p.2. A currently signed .ipsw file. Download mine at https://nicsfix.com/ipsw/18.0.ipsw or, build your own using the steps at the bottom of the guide. 
+p.2. A currently signed .ipsw file. Download 18.1 at https://nicsfix.com/ipsw/18.1.ipsw or, build your own using the steps at the bottom of the guide. 
 
 p.3. Homebrew <https://brew.sh/>
 
