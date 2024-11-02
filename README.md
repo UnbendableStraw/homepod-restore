@@ -7,7 +7,9 @@ You perform all of this at your own risk with no promises, guarantees, warranty,
 
 This guide was tested on Apple Silicon with MacOS. It _should_ work on Intel Macs or Linux, but do not ask me for help here. Ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working.
 
-You can only restore with currently signed HomePod OS versions! You can download the latest currently signed version to restore with [here,](https://nicsfix.com/ipsw/18.1.ipsw) or for fun try building your own using the steps at the bottom of this guide.
+You can only restore with currently signed HomePod OS versions! You can download the latest currently signed version to restore with here, or for fun try building your own using the steps at the bottom of this guide. 
+
+https://nicsfix.com/ipsw/18.1.ipsw
 
 ## How to restore your AHomePod!
 ### Prerequisites
