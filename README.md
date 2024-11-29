@@ -1,4 +1,8 @@
 # How to restore the first generation A1639 Apple HomePod! 
+
+> [!CAUTION]
+HomePods manually restored via USB with 18.1 appear to have a chance of being re-bricked when factory reset. We are looking into this. I do not recommend anyone try a USB restore until this is solved!
+
 ## Disclaimer
 
 READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING!_** Then, re-read it again before you attempt an actual restore, as steps / software may have changed.
