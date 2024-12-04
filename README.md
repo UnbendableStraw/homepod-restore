@@ -50,7 +50,8 @@ After that, you can run
 `make`
 `sudo make install`
 
-> [!TIP] Confirm idevicerestore works by running the command `idevicerestore`, it should return with a list of help options. Confirm HomeBrew is working by running `brew doctor` you should see something like `Your system is ready to brew!`
+> [!TIP] 
+> Confirm idevicerestore works by running the command `idevicerestore`, it should return with a list of help options. Confirm HomeBrew is working by running `brew doctor` you should see something like `Your system is ready to brew!`
 
 You are now set up to restore HomePods! From here on, you just need to run the next steps anytime you want to restore a(nother) HomePod unless any major updates come out.
 
