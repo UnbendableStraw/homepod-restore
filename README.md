@@ -46,9 +46,11 @@ Once you've ran the git checkout command, you must go to where your ideviceresto
 `irecv_init();` <- Delete this!
 
 After that, you can run
-`./autogen.sh`
-`make`
-`sudo make install`
+```
+./autogen.sh
+make
+sudo make install
+```
 
 > [!TIP] 
 > Confirm idevicerestore works by running the command `idevicerestore`, it should return with a list of help options. Confirm HomeBrew is working by running `brew doctor` you should see something like `Your system is ready to brew!`
