@@ -1,7 +1,7 @@
 # How to restore the first generation A1639 Apple HomePod! 
 
 > [!CAUTION]
-HomePods manually restored via USB with 18.1 appear to have a chance of being re-bricked when factory reset. We are looking into this. I do not recommend anyone try a USB restore unless your HomePod is already bricked!
+HomePods restored via USB with 18.1 appear to have a chance of being re-bricked when set-up and factory reset with certain Apple IDs. We are looking into this. Do not try a USB restore unless your HomePod is already bricked!
 
 ## Disclaimer
 
@@ -11,7 +11,7 @@ You perform all of this at your own risk with no promises, guarantees, warranty,
 
 This guide was tested on Apple Silicon / Intel with MacOS. It _should_ work on Linux, but do not ask me for help here. Ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working.
 
-You can only restore with currently signed HomePod OS versions! You can download the latest currently signed version to restore with here, or for fun try building your own using the steps at the bottom of this guide. 
+You can only restore with currently signed HomePod OS versions! You can download the latest currently signed version to restore with [here,](https://nicsfix.com/ipsw/18.1.ipsw) or for fun try building your own using the steps at the bottom of this guide. 
 
 https://nicsfix.com/ipsw/18.1.ipsw
 
@@ -40,20 +40,18 @@ brew install libzip
 git clone https://github.com/libimobiledevice/idevicerestore.git 
 cd idevicerestore
 git checkout d2e1c4f
-```
-Once you've ran the git checkout command, you must go to where your idevicerestore files checked out (usually "/Users/$USER/idevicerestore/src"), edit the file "dfu.c" and delete line 87 (or just comment it out by adding // before the method declaration) 
-
-`irecv_init();` <- Delete this!
-
-After that, you can run
-```
 ./autogen.sh
 make
 sudo make install
 ```
 
-> [!TIP] 
-> Confirm idevicerestore works by running the command `idevicerestore`, it should return with a list of help options. Confirm HomeBrew is working by running `brew doctor` you should see something like `Your system is ready to brew!`
+Confirm idevicerestore works by running the command `idevicerestore -v` you should see:
+
+`idevicerestore 1.0.0-215-gd2e1c4f (libirecovery 1.2.1, libtatsu 1.0.3)`. 
+
+Confirm HomeBrew is working by running `brew doctor` you should see:
+
+`Your system is ready to brew!`
 
 You are now set up to restore HomePods! From here on, you just need to run the next steps anytime you want to restore a(nother) HomePod unless any major updates come out.
 
@@ -86,14 +84,15 @@ Once you see `Restore Complete`, you can unplug power from your HomePod, then un
 If the restore is unsuccessful, try again from Restore Step 1. Usually though, errors are caused by faulty hardware, bad connection to the HomePod, or you didn't do something right.
 
 * If you get an ERROR: about `Unable to get SHSH blobs for this device` or `This device isn't eligible` or `Unable to send iBEC to device`, you are likely using the wrong version of idevicerestore or an unsigned .ipsw. Try redownloading or rebuilding your .ipsw, and try running `brew uninstall d235j/ios-restore-tools/idevicerestore` to install the specific version of idevicerestore needed from Prerequisite Step 4.
-* Is your HomePod upside down while attempting all of this?
-* Did you connect the HomePod's USB first, then connect power to HomePod?
-* Did you run `gaster pwn`, then `gaster reset`, then `idevicerestore -d -e YOUR.ipsw` all while your HomePod was connected, on, and upside down?
-* Restart your computer and try again from Restore Step 1.
-* If you get an `Unable to restore device` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work.
-* If you consistently get `Possibly invalid iBec` error, or `Waiting on NAND` during restore, it's probably hardware failure (nand / bga)
-* If you are not able to `gaster pwn` your HomePod, it's likely a hardware failure or bad USB connection.
-* Basically, it _should_ restore successfully if it's purely a software brick, and your connection to the HomePod is good.
+
+* If you get an error running `make`  during Prerequisite Step 4, or while running idevicerestore, saying `error: call to undeclared function 'irecv_init';`, you will need to work around this by modifying a file;
+* * Go to where your idevicerestore files checked out (usually "/Users/$USER/idevicerestore/src"), edit the file "dfu.c", and delete line 87
+`irecv_init();` <- Delete this!
+* * Now you can proceed with
+* * `./autogen.sh`
+* * `make`
+* * `sudo make install`
+```
 
 * You may see many repeating timeout messages like so:
 >
@@ -109,6 +108,18 @@ If the restore is unsuccessful, try again from Restore Step 1. Usually though, e
 > ```
 >
 This is normal and may take up to 10–15 minutes.
+
+Other Tips:
+
+* Is your HomePod upside down while attempting all of this?
+* Did you connect the HomePod's USB first, then connect power to HomePod?
+* Did you run `gaster pwn`, then `gaster reset`, then `idevicerestore -d -e YOUR.ipsw` all while your HomePod was connected, on, and upside down?
+* Restart your computer and try again from Restore Step 1.
+* If you get an `Unable to restore device` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work.
+* If you consistently get `Possibly invalid iBec` error, or `Waiting on NAND` during restore, it's probably hardware failure (nand / bga)
+* If you are not able to `gaster pwn` your HomePod, it's likely a hardware failure or bad USB connection.
+* Basically, it _should_ restore successfully if it's purely a software brick, and your connection to the HomePod is good.
+
 
 
 ## How to build your own .ipsw
