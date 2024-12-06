@@ -92,7 +92,7 @@ If the restore is unsuccessful, try again from Restore Step 1. Usually though, e
 * * `./autogen.sh`
 * * `make`
 * * `sudo make install`
-```
+
 
 * You may see many repeating timeout messages like so:
 >
@@ -105,7 +105,7 @@ If the restore is unsuccessful, try again from Restore Step 1. Usually though, e
 > No data to read (timeout)
 > No data to read (timeout)
 > No data to read (timeout)
-> ```
+>```
 >
 This is normal and may take up to 10–15 minutes.
 
