@@ -1,13 +1,13 @@
 # How to restore the first generation A1639 Apple HomePod! 
 
-> [!CAUTION]
-HomePods restored via USB with 18.1 appear to have a chance of being re-bricked when set-up and factory reset with certain Apple IDs. We are looking into this. Do not try a USB restore unless your HomePod is already bricked!
+> [!WARNING]
+> 18.2 will be released soon, and 18.1 will become unsigned and unrestorable. It's unknown yet whether we will be able to use the same steps / tools to restore with. There may be more work needed for USB Restores to continue working with 18.2+. We will know when it is released! 
 
 ## Disclaimer
 
 READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING!_** Then, re-read it again before you attempt an actual restore, as steps / software may have changed.
 
-You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware may need repair. Approach with care.
+You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware may need repair. Approach with care. Only USB Restore as a last resort.
 
 This guide was tested on Apple Silicon / Intel with MacOS. It _should_ work on Linux, but do not ask me for help here. Ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working.
 
@@ -15,7 +15,7 @@ You can only restore with currently signed HomePod OS versions! You can download
 
 https://nicsfix.com/ipsw/18.1.ipsw
 
-## How to restore your AHomePod!
+## How to restore your HomePod!
 ### Prerequisites
 
 p.0. You need a usb connection to your HomePod! The port on the pod is under the rubber base. Remove the base by wedging your fingers between the base and mesh, and prying it straight off. No heat necessary. It will stick right back on.  
@@ -81,17 +81,18 @@ Once you see `Restore Complete`, you can unplug power from your HomePod, then un
 
 ## Troubleshooting
 
-If the restore is unsuccessful, try again from Restore Step 1. Usually though, errors are caused by faulty hardware, bad connection to the HomePod, or you didn't do something right.
+If the restore is unsuccessful, try again from Restore Step 1. Usually though, errors are caused by faulty hardware, bad connection to the HomePod, or you didn't do something right. See if you recognize any of the errors below with what you got...
 
-* If you get an ERROR: about `Unable to get SHSH blobs for this device` or `This device isn't eligible` or `Unable to send iBEC to device`, you are likely using the wrong version of idevicerestore or an unsigned .ipsw. Try redownloading or rebuilding your .ipsw, and try running `brew uninstall d235j/ios-restore-tools/idevicerestore` to install the specific version of idevicerestore needed from Prerequisite Step 4.
+* If you get an ERROR: about `Unable to get SHSH blobs for this device` or `This device isn't eligible` or `Unable to send iBEC to device`, you are likely using the wrong version of idevicerestore, or an unsigned .ipsw. Try redownloading or rebuilding your .ipsw, and try running `brew uninstall d235j/ios-restore-tools/idevicerestore` to install the specific version of idevicerestore needed from Prerequisite Step 4.
 
 * If you get an error running `make`  during Prerequisite Step 4, or while running idevicerestore, saying `error: call to undeclared function 'irecv_init';`, you will need to work around this by modifying a file;
 * * Go to where your idevicerestore files checked out (usually "/Users/$USER/idevicerestore/src"), edit the file "dfu.c", and delete line 87
 `irecv_init();` <- Delete this!
-* * Now you can proceed with
+* * Now you can proceed through the rest of the guide...
 * * `./autogen.sh`
 * * `make`
 * * `sudo make install`
+
 
 
 * You may see many repeating timeout messages like so:
@@ -124,7 +125,7 @@ Other Tips:
 
 ## How to build your own .ipsw
 
-You don't need to do this, only if you want to try building an .ipsw yourself. Accomplish the prerequisites first. This is actively being worked on to be made easier. 
+You don't need to do this, only if you want to try building an .ipsw yourself. Accomplish the prerequisites first. May get easier in the future.
 
 1. Download the latest ./makeipsw.sh from [tihmstar's repo](https://github.com/tihmstar/homepodstuff)
 2. Download the desired signed, full OTA .zip for AudioAccessory1,1 (from ipsw.me). You need the one with the full ramdisk (usually the largest one with no prerequisites)
@@ -141,7 +142,7 @@ You don't need to do this, only if you want to try building an .ipsw yourself. A
 
 
 ## Credit
-Huge thanks to thimstar, and David Ryskalczyk, for making all of this happen. All I've done is test and put guides together! Consider donating to them if you found this helpful.
+Huge thanks to thimstar, and David Ryskalczyk, for making all of this happen. Consider donating to them if you found this helpful! I do the easy work, making the how-to's, testing, support, and attempting to keep things up to date. 
 
 * https://github.com/tihmstar
 * https://www.patreon.com/tihmstar
