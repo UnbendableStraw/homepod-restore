@@ -19,13 +19,13 @@ https://nicsfix.com/ipsw/18.1.ipsw
 
 p.0. You need a usb connection to your HomePod! The port on the pod is under the rubber base. Remove the base by wedging your fingers between the base and mesh, and prying it straight off. No heat necessary. It will stick right back on.  
 > [!TIP]
-> I strongly suggest cleaning all the black adhesive off the base of your HomePod around the debug port to allow your adapter to sit flush and close. You can easily clean all the adhesive by rolling it up into bits with your fingertips.
+> I strongly suggest cleaning all the black adhesive off the base of your HomePod around the debug port to allow your adapter to sit flush and close. You can easily clean all the adhesive by rolling itself into a ball and peeling it off.
 
 p.0.0. While you can solder a usb cable directly to the debug port on the HomePod, it's not recommended, the pads are fragile. You can [make your own adapter,](https://github.com/UnbendableStraw/homepwn-simple) or buy premade adapters [here!](https://nicsfix.com/shop)
 
 p.1. You need Homebrew installed: <https://brew.sh/>
 > [!WARNING]
-> On some Macs, after you install HomeBrew in your terminal, you will see "Next Steps, Run these commands..." Run those commands!!_** Verify your Homebrew install is working with the command: `brew doctor`
+> On some Macs, after you install HomeBrew in your terminal, you will see "Next Steps, Run these commands..." Run those commands!!
 
 p.2. Now run these commands, one at a time. This taps David's repo, then installs the necessary restore tools. For now, we are also installing a specific version of idevicerestore to workaround a bug in the latest version:
 ```
