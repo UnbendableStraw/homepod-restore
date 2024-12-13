@@ -8,7 +8,7 @@ You perform all of this at your own risk with no promises, guarantees, warranty,
 
 This guide was tested on Apple Silicon / Intel with MacOS. It _should_ work on Linux, but do not ask me for help here. Ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working.
 
-You can only restore with currently signed HomePod OS versions! You can download the latest currently signed version to restore with [here,](https://nicsfix.com/ipsw/18.1.ipsw) or for fun try building your own using the steps at the bottom of this guide. 
+You can only restore with currently signed HomePod OS versions! You can download the latest currently signed version to restore with [here,](https://nicsfix.com/ipsw/18.2.ipsw) or for fun try building your own using the steps at the bottom of this guide. 
 
 https://nicsfix.com/ipsw/18.2.ipsw
 
@@ -62,7 +62,10 @@ You are now set up to restore HomePods! From here on, you just need to run the n
 
   * * Some macs will have "Allow Accessory to Connect" prompts along the way, Allow them! Pay attention to more prompts while running restore process, too.
 
-2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can drag your .ipsw file from Finder into your Terminal window to populate it's path. 
+2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can use my latest signed .ipsw [here](https://nicsfix.com/ipsw/18.2.ipsw)
+
+> [!TIP]
+> Drag your .ipsw file from a Finder window, into your Terminal window, to populate it's path!
 
 ```
 gaster pwn
