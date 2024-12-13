@@ -11,6 +11,7 @@ This guide was tested on Apple Silicon / Intel with MacOS. It _should_ work on L
 You can only restore with currently signed HomePod OS versions! You can download the latest currently signed version to restore with [here,](https://nicsfix.com/ipsw/18.1.ipsw) or for fun try building your own using the steps at the bottom of this guide. 
 
 https://nicsfix.com/ipsw/18.2.ipsw
+
 https://nicsfix.com/ipsw/18.1.ipsw
 
 ## How to restore your HomePod!
