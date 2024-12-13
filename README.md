@@ -1,8 +1,5 @@
 # How to restore the first generation A1639 Apple HomePod! 
 
-> [!WARNING]
-> 18.2 will be released soon, and 18.1 will become unsigned and unrestorable. It's unknown yet whether we will be able to use the same steps / tools to restore with. There may be more work needed for USB Restores to continue working with 18.2+. We will know when it is released! 
-
 ## Disclaimer
 
 READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING!_** Then, re-read it again before you attempt an actual restore, as steps / software may have changed.
@@ -13,6 +10,7 @@ This guide was tested on Apple Silicon / Intel with MacOS. It _should_ work on L
 
 You can only restore with currently signed HomePod OS versions! You can download the latest currently signed version to restore with [here,](https://nicsfix.com/ipsw/18.1.ipsw) or for fun try building your own using the steps at the bottom of this guide. 
 
+https://nicsfix.com/ipsw/18.2.ipsw
 https://nicsfix.com/ipsw/18.1.ipsw
 
 ## How to restore your HomePod!
