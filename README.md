@@ -6,7 +6,7 @@ READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING!_** Then, re-r
 
 You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware may need repair. Approach with care. Only do this as a last resort.
 
-## WHat will this work with?
+## What will this work with?
 
 First-generation Apple HomePods with symptoms such as blinking volume buttons... boot looping... booting forever... failing to setup / configure / update etc... have a chance of this working, and resolving the issue(s). Not all HomePods with these symptoms are just software or just hardware issues, but it is not possible to tell without attempting a USB restore. 
 
