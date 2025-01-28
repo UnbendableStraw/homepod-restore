@@ -4,15 +4,19 @@
 
 READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING!_** Then, re-read it again before you attempt an actual restore, as steps / software may have changed.
 
-You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware may need repair. Approach with care. Only USB Restore as a last resort.
+You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware may need repair. Approach with care. Only do this as a last resort.
 
-This guide was tested on Apple Silicon / Intel with MacOS. It _should_ work on Linux, but do not ask me for help here. Ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working.
+## WHat will this work with?
 
-You can only restore with currently signed HomePod OS versions! You can download the latest currently signed version to restore with [here,](https://nicsfix.com/ipsw/18.2.ipsw) or for fun try building your own using the steps at the bottom of this guide. 
+First-generation Apple HomePods with symptoms such as blinking volume buttons... boot looping... booting forever... failing to setup / configure / update etc... have a chance of this working, and resolving the issue(s). Not all HomePods with these symptoms are just software or just hardware issues, but it is not possible to tell without attempting a USB restore. 
 
-https://nicsfix.com/ipsw/18.2.ipsw
+HomePods with other symptoms like No Power are usually a hardware issue that this won't fix. 
 
-https://nicsfix.com/ipsw/18.1.ipsw
+You can only restore with currently signed HomePod OS versions! You can download the latest currently signed version to restore with below. You can also try building your own using the steps at the bottom of this guide. 
+
+https://nicsfix.com/ipsw/18.3.ipsw
+
+https://nicsfix.com/ipsw/18.2.ipsw (soon to be unsigned!)
 
 ## How to restore your HomePod!
 ### Prerequisites
