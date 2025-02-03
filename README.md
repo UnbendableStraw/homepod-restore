@@ -8,6 +8,8 @@ You perform all of this at your own risk with no promises, guarantees, warranty,
 
 ## What will this work with?
 
+This guide was tested on Apple Silicon / Intel with MacOS. It _should_ work on Linux, but do not ask me for help here. Ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working.
+
 First-generation Apple HomePods with symptoms such as blinking volume buttons... boot looping... booting forever... failing to setup / configure / update etc... have a chance of this working, and resolving the issue(s). Not all HomePods with these symptoms are just software or just hardware issues, but it is not possible to tell without attempting a USB restore. 
 
 HomePods with other symptoms like No Power are usually a hardware issue that this won't fix. 
@@ -89,9 +91,9 @@ Once you see `Restore Complete`, you can unplug power from your HomePod, then un
 
 If the restore is unsuccessful, try again from Restore Step 1. Usually though, errors are caused by faulty hardware, bad connection to the HomePod, or you didn't do something right. See if you recognize any of the errors below with what you got...
 
-* If you get an ERROR: about `Unable to get SHSH blobs for this device` or `This device isn't eligible` or `Unable to send iBEC to device`, you are likely using the wrong version of idevicerestore, or an unsigned .ipsw. Try redownloading or rebuilding your .ipsw, and try running `brew uninstall d235j/ios-restore-tools/idevicerestore` to install the specific version of idevicerestore needed from Prerequisite Step 4.
+If you get an ERROR: about `Unable to get SHSH blobs for this device` or `This device isn't eligible` or `Unable to send iBEC to device`, you are likely using the wrong version of idevicerestore, or an unsigned .ipsw. Try redownloading or rebuilding your .ipsw, and try running `brew uninstall d235j/ios-restore-tools/idevicerestore` to install the specific version of idevicerestore needed from Prerequisite Step 4.
 
-* If you get an error running `make`  during Prerequisite Step 4, or while running idevicerestore, saying `error: call to undeclared function 'irecv_init';`, you will need to work around this by modifying a file;
+If you get an error running `make`  during Prerequisite Step 4, or while running idevicerestore, saying `error: call to undeclared function 'irecv_init';`, you will need to work around this by modifying a file;
 * * Go to where your idevicerestore files checked out (usually "/Users/$USER/idevicerestore/src"), edit the file "dfu.c", and delete line 87
 `irecv_init();` <- Delete this!
 * * Now you can proceed through the rest of the guide...
@@ -99,21 +101,17 @@ If the restore is unsuccessful, try again from Restore Step 1. Usually though, e
 * * `make`
 * * `sudo make install`
 
-
-
-* You may see many repeating timeout messages like so:
->
-> ```
-> ReverseProxy[Conn]: Received Ping command, replying with Pong
-> ReverseProxy[Conn]: Connection closed
-> ReverseProxy[Conn]: (status=2) Terminated
-> No data to read (timeout)
-> No data to read (timeout)
-> No data to read (timeout)
-> No data to read (timeout)
-> No data to read (timeout)
->```
->
+You may see many repeating timeout messages like so:
+```
+ReverseProxy[Conn]: Received Ping command, replying with Pong
+ReverseProxy[Conn]: Connection closed
+ReverseProxy[Conn]: (status=2) Terminated
+No data to read (timeout)
+No data to read (timeout)
+No data to read (timeout)
+No data to read (timeout)
+No data to read (timeout)
+```
 This is normal and may take up to 10–15 minutes.
 
 Other Tips:
@@ -123,9 +121,11 @@ Other Tips:
 * Did you run `gaster pwn`, then `gaster reset`, then `idevicerestore -d -e YOUR.ipsw` all while your HomePod was connected, on, and upside down?
 * Restart your computer and try again from Restore Step 1.
 * If you get an `Unable to restore device` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work.
-* If you consistently get `Possibly invalid iBec` error, or `Waiting on NAND` during restore, it's probably hardware failure (nand / bga)
-* If you are not able to `gaster pwn` your HomePod, it's likely a hardware failure or bad USB connection.
-* Basically, it _should_ restore successfully if it's purely a software brick, and your connection to the HomePod is good.
+* `Waiting on NAND` followed by `storage device did not become available` and `Timeout waiting for NVRAM Service` usually means your NAND or NAND BGA has failed. 
+* `Possibly invalid iBec`, or `Device failed to enter restore mode. Please make sure that usbmuxd is running.` usually means your A8 SoC or SoC BGA has failed.
+* If you are not able to run `gaster pwn` with your HomePod, it's likely a hardware failure or bad USB connection.
+
+Basically, it _should_ restore successfully if it's purely a software brick, and your connection to the HomePod is good.
 
 
 
