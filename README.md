@@ -8,7 +8,7 @@ You perform all of this at your own risk with no promises, guarantees, warranty,
 
 ## What will this work with?
 
-This guide was tested on Apple Silicon / Intel with MacOS. It _should_ work on Linux, but do not ask me for help here. Ask in the [discord server](https://discord.gg/track44). Feel free to contribute steps to getting other platforms working.
+This guide was tested on Apple Silicon / Intel with MacOS. It _should_ work on Linux, but do not ask me for help here. Ask in the [discord server](https://discord.gg/nicsfix). Feel free to contribute steps to getting other platforms working.
 
 First-generation Apple HomePods with symptoms such as blinking volume buttons... boot looping... booting forever... failing to setup / configure / update etc... have a chance of this working, and resolving the issue(s). Not all HomePods with these symptoms are just software or just hardware issues, but it is not possible to tell without attempting a USB restore. 
 
