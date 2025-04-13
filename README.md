@@ -14,11 +14,11 @@ First-generation Apple HomePods with symptoms such as blinking volume buttons...
 
 HomePods with other symptoms like No Power are usually a hardware issue that this won't fix. 
 
-You can only restore with currently signed HomePod OS versions! You can download the latest currently signed version to restore with below. You can also try building your own using the steps at the bottom of this guide. 
+You can only restore with currently signed HomePod OS versions, and with the command tools outlined in the guide. You can not simply click Restore in Finder, or restore with older versions. So check back here on occasion to make sure you have the latest .ipsw!
 
-https://nicsfix.com/ipsw/18.3.ipsw
+You can also try building your own using the steps at the bottom of this guide. 
 
-https://nicsfix.com/ipsw/18.2.ipsw (soon to be unsigned!)
+Link to current, pre-built, signed .ipsw (18.4): https://nicsfix.com/ipsw/18.4.ipsw
 
 ## How to restore your HomePod!
 ### Prerequisites
