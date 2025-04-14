@@ -154,4 +154,4 @@ Huge thanks to thimstar, and David Ryskalczyk, for making all of this happen. Co
 * https://www.patreon.com/tihmstar
 
 
-### Looking for more HomePod repairs? Visit https://nicsfix.com or join my discord server for more help at https://discord.gg/track44
+### Looking for more HomePod repairs? Visit https://nicsfix.com or join my discord server for more help at https://discord.gg/nicsfix
