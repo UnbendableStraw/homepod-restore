@@ -68,7 +68,7 @@ You are now set up to restore HomePods! From here on, you just need to run the n
 
   * * Some macs will have "Allow Accessory to Connect" prompts along the way, Allow them! Pay attention to more prompts while running restore process, too.
 
-2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can use my latest signed .ipsw [here](https://nicsfix.com/ipsw/18.2.ipsw)
+2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can use my latest signed .ipsw [here](https://nicsfix.com/ipsw/18.4.ipsw)
 
 > [!TIP]
 > Drag your .ipsw file from a Finder window, into your Terminal window, to populate it's path!
