@@ -18,7 +18,7 @@ You can only restore with currently signed HomePod OS versions, and with the com
 
 You can also try building your own using the steps at the bottom of this guide. 
 
-Link to current, pre-built, signed .ipsw (18.5): https://nicsfix.com/ipsw/18.5.ipsw
+Link to current, pre-built, signed .ipsw (18.5): https://nicsfix.com/ipsw/18.6.ipsw
 
 ## How to restore your HomePod!
 ### Prerequisites
