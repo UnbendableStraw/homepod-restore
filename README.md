@@ -127,7 +127,7 @@ Other Tips:
 
 Basically, it _should_ restore successfully if it's purely a software brick, and your connection to the HomePod is good.
 
-
+I am working on a spreadhseet of known errors / behaviors here; https://docs.google.com/spreadsheets/d/1Fvoa8zhKQzLCrZxgvBHMtxuQuXDyvi9EKi9KwdjbxGo/edit?usp=sharing
 
 ## How to build your own .ipsw
 
