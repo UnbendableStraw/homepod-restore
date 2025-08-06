@@ -18,7 +18,7 @@ You can only restore with currently signed HomePod OS versions, and with the com
 
 You can also try building your own using the steps at the bottom of this guide. 
 
-Link to current, pre-built, signed .ipsw (18.5): https://nicsfix.com/ipsw/18.6.ipsw
+Link to current, pre-built, signed .ipsw (18.6): https://nicsfix.com/ipsw/18.6.ipsw
 
 ## How to restore your HomePod!
 ### Prerequisites
@@ -68,7 +68,7 @@ You are now set up to restore HomePods! From here on, you just need to run the n
 
   * * Some macs will have "Allow Accessory to Connect" prompts along the way, Allow them! Pay attention to more prompts while running restore process, too.
 
-2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can use my latest signed .ipsw [here](https://nicsfix.com/ipsw/18.5.ipsw)
+2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can use my latest signed .ipsw [here](https://nicsfix.com/ipsw/18.6.ipsw)
 
 > [!TIP]
 > Drag your .ipsw file from a Finder window, into your Terminal window, to populate it's path!
