@@ -1,5 +1,8 @@
 # How to restore the first generation A1639 Apple HomePod! 
 
+> [!WARNING]
+> There is currently no firmware available to restore with! Check back in a few days for a 26.0 ipsw. You WILL NOT be able to restore older versions, until you build your own 26.0 ipsw, or wait for mine. 
+
 ## Disclaimer
 
 READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING!_** Then, re-read it again before you attempt an actual restore, as steps / software may have changed.
