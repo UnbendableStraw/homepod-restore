@@ -1,8 +1,5 @@
 # How to restore the first generation A1639 Apple HomePod! 
 
-> [!WARNING]
-> There is currently no firmware available to restore with! Check back in a few days for a 26.0 ipsw. You WILL NOT be able to restore older versions, until you build your own 26.0 ipsw, or wait for mine. 
-
 ## Disclaimer
 
 READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING!_** Then, re-read it again before you attempt an actual restore, as steps / software may have changed.
@@ -21,7 +18,8 @@ You can only restore with currently signed HomePod OS versions, and with the com
 
 You can also try building your own using the steps at the bottom of this guide. 
 
-Link to current, pre-built, signed .ipsw (18.6): https://nicsfix.com/ipsw/18.6.ipsw
+> [!TIP]
+> Link to current, pre-built, signed .ipsw (26.0): https://nicsfix.com/ipsw/26.0.ipsw
 
 ## How to restore your HomePod!
 ### Prerequisites
@@ -71,7 +69,7 @@ You are now set up to restore HomePods! From here on, you just need to run the n
 
   * * Some macs will have "Allow Accessory to Connect" prompts along the way, Allow them! Pay attention to more prompts while running restore process, too.
 
-2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can use my latest signed .ipsw [here](https://nicsfix.com/ipsw/18.6.ipsw)
+2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can use my latest signed .ipsw [here](https://nicsfix.com/ipsw/26.0.ipsw)
 
 > [!TIP]
 > Drag your .ipsw file from a Finder window, into your Terminal window, to populate it's path!
