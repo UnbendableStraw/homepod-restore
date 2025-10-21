@@ -6,6 +6,7 @@ READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING!_** Then, re-r
 
 You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware may need repair. Approach with care. Only do this as a last resort.
 
+
 ## What will this work with?
 
 This guide was tested on Apple Silicon / Intel with MacOS. It _should_ work on Linux, but do not ask me for help here. Ask in the [discord server](https://discord.gg/nicsfix). Feel free to contribute steps to getting other platforms working.
@@ -18,8 +19,12 @@ You can only restore with currently signed HomePod OS versions, and with the com
 
 You can also try building your own using the steps at the bottom of this guide. 
 
+> [!WARNING]
+For some reason, USB restoring certain firmware versions (most recently observed with 26.0.1) and resetting the HomePod, will result in a boot loop with brief flashing volume buttons. For some stranger reason, Apple continues to sign 18.3, and it does not reproduce this behavior. It is advised to restore with 18.3, and allow the HomePod to set up and update as usual from the Home app. 
+
 > [!TIP]
-> Link to current, pre-built, signed .ipsw (26.0.1): https://nicsfix.com/ipsw/26.0.1.ipsw
+> Link to pre-built, signed .ipsw (18.3): https://nicsfix.com/ipsw/18.3.ipsw
+
 
 ## How to restore your HomePod!
 ### Prerequisites
@@ -69,7 +74,7 @@ You are now set up to restore HomePods! From here on, you just need to run the n
 
   * * Some macs will have "Allow Accessory to Connect" prompts along the way, Allow them! Pay attention to more prompts while running restore process, too.
 
-2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can use my latest signed .ipsw [here](https://nicsfix.com/ipsw/26.0.1.ipsw)
+2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can use my latest signed .ipsw [here](https://nicsfix.com/ipsw/18.3.ipsw)
 
 > [!TIP]
 > Drag your .ipsw file from a Finder window, into your Terminal window, to populate it's path!
