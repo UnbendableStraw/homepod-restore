@@ -1,46 +1,74 @@
-# How to restore the first generation A1639 Apple HomePod! 
+# HomePod Restore
 
-## Disclaimer
-
-READ THROUGH THE COMPLETE GUIDE FIRST BEFORE TOUCHING **_ANYTHING!_** Then, re-read it again before you attempt an actual restore, as steps / software may have changed.
-
-You perform all of this at your own risk with no promises, guarantees, warranty, whatever. Mistakes made with software can be restored with software, but mistakes made with hardware may need repair. Approach with care. Only do this as a last resort.
-
-
-## What will this work with?
-
-This guide was tested on Apple Silicon / Intel with MacOS. It _should_ work on Linux, but do not ask me for help here. Ask in the [discord server](https://discord.gg/nicsfix). Feel free to contribute steps to getting other platforms working.
-
-First-generation Apple HomePods with symptoms such as blinking volume buttons... boot looping... booting forever... failing to setup / configure / update etc... have a chance of this working, and resolving the issue(s). Not all HomePods with these symptoms are just software or just hardware issues, but it is not possible to tell without attempting a USB restore. 
-
-HomePods with other symptoms like No Power are usually a hardware issue that this won't fix. 
-
-You can only restore with currently signed HomePod OS versions, and with the command tools outlined in the guide. You can not simply click Restore in Finder, or restore with older versions. So check back here on occasion to make sure you have the latest .ipsw!
-
-You can also try building your own using the steps at the bottom of this guide. 
-
-> [!WARNING]
-For some reason, USB restoring certain firmware versions (most recently observed with 26.0.1) and resetting the HomePod, will result in a boot loop with brief flashing volume buttons. For some stranger reason, Apple continues to sign 18.3, and it does not reproduce this behavior. It is advised to restore with 18.3, and allow the HomePod to set up and update as usual from the Home app. 
+How to USB-restore a first-generation Apple HomePod (A1639).
 
 > [!TIP]
-> Link to pre-built, signed .ipsw (18.3): https://nicsfix.com/ipsw/18.3.ipsw
+> **Pre-built, signed .ipsw (18.3):** https://nicsfix.com/ipsw/18.3.ipsw
 
+- [Before you start](#before-you-start)
+- [Will this fix my HomePod?](#will-this-fix-my-homepod)
+- [What you need](#what-you-need)
+- [One-time setup](#one-time-setup)
+- [Restoring a HomePod](#restoring-a-homepod)
+- [Troubleshooting](#troubleshooting)
+- [Building your own .ipsw](#building-your-own-ipsw)
+- [Credits](#credits)
 
-## How to restore your HomePod!
-### Prerequisites
+---
 
-p.0. You need a usb connection to your HomePod! The port on the pod is under the rubber base. Remove the base by wedging your fingers between the base and mesh, and prying it straight off. No heat necessary. It will stick right back on.  
-> [!TIP]
-> I strongly suggest cleaning all the black adhesive off the base of your HomePod around the debug port to allow your adapter to sit flush and close. You can easily clean all the adhesive by rolling itself into a ball and peeling it off.
+## Before you start
 
-p.0.0. While you can solder a usb cable directly to the debug port on the HomePod, it's not recommended, the pads are fragile. You can [make your own adapter,](https://github.com/UnbendableStraw/homepwn-simple) or buy premade adapters [here!](https://nicsfix.com/shop)
+> [!IMPORTANT]
+> Read this **entire** guide before touching anything. Then read it again right before you restore, something may have changed!
 
-p.1. You need Homebrew installed: <https://brew.sh/>
+You do all of this at your own risk. No promises, guarantees or warranty. Software mistakes can be fixed with software, but hardware mistakes may need a hardware repair. Try this if nothing else works. 
+
+## Will this fix my HomePod?
+
+It might, if your HomePod has symptoms like:
+
+- Blinking volume buttons
+- Boot looping, or booting forever
+- Failing to set up, configure or update (especially if it's on OS 11, 12, 13, and even some versions of 14! These have NO known upgrade path on their own!)
+
+Some of these come from software, some from hardware.  The only way to tell is to attempt a USB restore. A HomePod with **no power** almost always has hardware issues this won't fix...check my Repair Guides to learn more about that.
+
+**Limits:**
+
+- You can only restore currently signed HomePod OS versions, using the tools in this guide. Clicking Restore in Finder won't work, and neither will older versions. Check back here now and then for the latest .ipsw.
+- This guide is tested on macOS (Apple silicon and Intel). It *should* work on Linux, but I can't help you much better than AI can there. You can also get help in my [Discord server](https://discord.gg/nicsfix). 
+
 > [!WARNING]
-> On some Macs, after you install HomeBrew in your terminal, you will see "Next Steps, Run these commands..." Run those commands!!
+> **Restore with 18.3.** Some firmware versions (most recently 26.0.1) end up in a boot loop with briefly flashing volume buttons after a USB restore and reset. For whatever reason, Apple still signs 18.3, and 18.3 doesn't do this. Restore with 18.3, then let the HomePod set up and update as usual from the Home app.
 
-p.2. Now run these commands, one at a time. This taps David's repo, then installs the necessary restore tools. For now, we are also installing a specific version of idevicerestore to workaround a bug in the latest version:
-```
+## What you need
+
+- A first-gen HomePod (A1639)
+- A Mac
+- **A USB adapter for the HomePod's debug port.** You can [buy a premade adapter](https://nicsfix.com/shop) or [try to make your own](https://github.com/UnbendableStraw/homepwn-simple). You *can* solder a USB cable straight to the debug port, but I don't recommend it. The pads are very fragile, and IF you manage to not mangle it, leftover solder can still inhibit a proper usb adapter's connection.
+- [Homebrew](https://brew.sh/)
+- A signed .ipsw. [Download mine (18.3)](https://nicsfix.com/ipsw/18.3.ipsw) or [build your own](#building-your-own-ipsw).
+
+### Getting to the debug port
+
+The port is under the HomePod's rubber base. Wedge your fingers between the base and the mesh and pry it straight off. You don't need heat, and the base sticks right back on afterwards. 
+
+> [!TIP]
+> You might break a few of the little plastic tabs on your rubber base...snap off any that aren't still standing straight up or it will keep your base from sitting flat again! These are not critical.
+
+> [!WARNING]
+> Clean all the black adhesive off the bottom of the HomePod around the debug port so your adapter can sit flush and be removed later without excessive force, risking damage to your adapter. The adhesive rolls into a ball and peels off easily. 
+
+## First-time setup
+
+**1. Install [Homebrew](https://brew.sh/).**
+
+> [!WARNING]
+> On some Macs the Homebrew installer finishes with **"Next steps: Run these commands..."** Run those commands!
+
+**2. Install the restore tools.** Run these commands one at a time. They tap David's repo and install the restore tools, and builds a specific version of `idevicerestore` (`d2e1c4f`) to work around a bug in later versions.
+
+```sh
 brew tap d235j/ios-restore-tools
 brew install --HEAD libimobiledevice-glue
 brew install --HEAD d235j/ios-restore-tools/libimobiledevice
@@ -48,7 +76,7 @@ brew install --HEAD libirecovery
 brew install --HEAD gaster
 brew install --HEAD ldid-procursus
 brew install libzip
-git clone https://github.com/libimobiledevice/idevicerestore.git 
+git clone https://github.com/libimobiledevice/idevicerestore.git
 cd idevicerestore
 git checkout d2e1c4f
 ./autogen.sh
@@ -56,58 +84,91 @@ make
 sudo make install
 ```
 
-Confirm idevicerestore works by running the command `idevicerestore -v` you should see:
+If `make` fails with `error: call to undeclared function 'irecv_init'`, see [Troubleshooting](#make-fails-with-irecv_init)!
 
-`idevicerestore 1.0.0-215-gd2e1c4f (libirecovery 1.2.1, libtatsu 1.0.3)`. 
+**3. Check that everything works;**
 
-Confirm HomeBrew is working by running `brew doctor` you should see:
+| Command | Expected output |
+| --- | --- |
+| `idevicerestore -v` | `idevicerestore 1.0.0-215-gd2e1c4f (libirecovery 1.2.1, libtatsu 1.0.3)` |
+| `brew doctor` | `Your system is ready to brew!` |
 
-`Your system is ready to brew!`
+You're now set up to restore HomePods! From here on, you only need the steps below each time you restore a HomePod.
 
-You are now set up to restore HomePods! From here on, you just need to run the next steps anytime you want to restore a(nother) HomePod unless any major updates come out.
+## Restoring a HomePod
 
-### Restore Steps
+**1. Connect everything, in this exact order:**
 
-1. IN ORDER: Place and keep your HomePod upside down. Then, connect the adapter to the HomePod. Then, plug the usb cable into computer. Only then, can you plug power into HomePod. 
-
-  * * It is important you do this in order. With the adapter attached to your HomePod, keep pod upside down. USB to PC first. Then power to pod. 
-
-  * * Some macs will have "Allow Accessory to Connect" prompts along the way, Allow them! Pay attention to more prompts while running restore process, too.
-
-2. Run the following commands, one at a time. Replace YOUR.ipsw with the location of your .ipsw file. You can use my latest signed .ipsw [here](https://nicsfix.com/ipsw/18.3.ipsw)
+1. Flip the HomePod upside down, and keep it upside down the whole time.
+2. Attach the adapter to the HomePod.
+3. Plug the USB cable into your Mac.
+4. **Only then** plug power into the HomePod.
 
 > [!TIP]
-> Drag your .ipsw file from a Finder window, into your Terminal window, to populate it's path!
+> Some Macs show **"Allow accessory to connect?"** prompts. Allow them, and keep an eye out for more prompts while the restore runs.
 
-```
+**2. Run these commands one at a time**, replacing `YOUR.ipsw` with the path to your .ipsw:
+
+```sh
 gaster pwn
 gaster reset
 idevicerestore -d -e YOUR.ipsw
 ```
 
-3. Be patient! It can take up to 10-15 minutes. Once you see `Restore Complete`, it will still appear to be bootlooping / blinking volume buttons, thats expected! 
+> [!TIP]
+> Drag your .ipsw from Finder into the Terminal window to fill in its path and skip typos.
 
-Once you see `Restore Complete`, you can unplug power from your HomePod, then unplug the usb cable, then remove adapter from HomePod. Flip the HomePod rightside up, reconnect power and wait for it to reboot a few times and initialize set-up! 
-
+**3. Be patient.** The restore can take 10–15 minutes. Lots of repeating `No data to read (timeout)` messages are normal. If / when you see `Restore Complete`, the HomePod will still look like it's boot looping with blinking volume buttons. That's expected! There may also be a few extra log messages after this. 
 
 > [!CAUTION]
-> Do not disturb your dongle, HomePod, or any part of the USB cable while restoring. The pads are close together, with voltage next to data lines, and you risk failing to restore, or worse, shorting and damaging something. When you remove the adapter from the HomePod, be sure the USB cable is unplugged first, and power isn't plugged into the HomePod!
+> Don't bump the adapter, the HomePod or the USB cable while it's restoring. The pads are close together, with voltage right next to the data lines, so a bump can fail the restore or, worse, short and damage something. Before you remove the adapter, make sure the USB cable is unplugged and the HomePod has no power.
+
+**4. Disconnect, in this order:**
+
+1. Unplug power from the HomePod.
+2. Unplug the USB cable.
+3. Remove the adapter.
+
+Flip the HomePod right side up, plug power back in, and wait. It will reboot a few times and then go into setup.
+
 
 ## Troubleshooting
 
-* If you get an error running `make`  during Prerequisite Step 4, or while running idevicerestore, saying `error: call to undeclared function 'irecv_init';`, you will need to work around this by modifying a file;
-* * Go to where your idevicerestore files checked out (usually "/Users/$USER/idevicerestore/src"), edit the file "dfu.c", and delete line 87
-`irecv_init();` <- Delete this!
-* * Now you can proceed through the rest of the guide...
-* * `./autogen.sh`
-* * `make`
-* * `sudo make install`
+If a restore fails, start over from [step 1 of the restore](#restoring-a-homepod). Most failures come from faulty hardware, a bad connection to the HomePod, or a missed step. If it's purely a software brick and your connection is good, it *should* restore.
 
-* If the restore is unsuccessful, try again from Restore Step 1. Usually though, errors are caused by faulty hardware, bad connection to the HomePod, or you didn't do something right. See if you recognize any of the errors below with what you got...
+**Quick checks:**
 
-* If you get an ERROR: about `Unable to get SHSH blobs for this device` or `This device isn't eligible` or `Unable to send iBEC to device`, you are likely using the wrong version of idevicerestore, or an unsigned .ipsw. Try redownloading or rebuilding your .ipsw, and try running `brew uninstall d235j/ios-restore-tools/idevicerestore` to install the specific version of idevicerestore needed from Prerequisite Step 4.
+- Is the HomePod upside down?
+- Did you plug in USB first, and *then* power to the HomePod?
+- Did you run `gaster pwn`, `gaster reset` and `idevicerestore -d -e YOUR.ipsw` while the HomePod was connected, powered on and upside down?
+- Try restarting your Mac and starting again from step 1.
 
-* You may see many repeating timeout messages like so:
+### `make` fails with `irecv_init`
+
+If you get `error: call to undeclared function 'irecv_init'` while running `make` during setup, or while running `idevicerestore`:
+
+1. Open `dfu.c` in the `src` folder of your idevicerestore clone (usually `~/idevicerestore/src/dfu.c`) with your preferred text / code editor
+2. Delete line 87, which reads `irecv_init();` and save your changes!
+3. Rebuild from the `idevicerestore` folder:
+   ```sh
+   ./autogen.sh
+   make
+   sudo make install
+   ```
+
+### Common errors
+
+| You see | Likely cause | What to do |
+| --- | --- | --- |
+| `Unable to get SHSH blobs for this device`, `This device isn't eligible` or `Unable to send iBEC to device` | Wrong version of idevicerestore, or an unsigned .ipsw | Re-download or rebuild your .ipsw. If you have the Homebrew version of idevicerestore installed, remove it with `brew uninstall d235j/ios-restore-tools/idevicerestore` so the pinned version from [setup](#one-time-setup) is used. |
+| Many repeating `No data to read (timeout)` / `ReverseProxy` messages | Normal | Wait. It can take 10–15 minutes. |
+| `Unable to restore device` with `failure when attempting to flash the nitrogen firmware` | Usually a one-off | Try again from step 1. It usually works. |
+| `gaster pwn` won't run | Hardware failure or a bad USB connection | Check that the adapter is seated flush and the base is clean. |
+| `Waiting on NAND`, then `storage device did not become available` and `Timeout waiting for NVRAM Service` | Failed NAND or NAND BGA | Hardware repair |
+| `Possibly invalid iBec` or `Device failed to enter restore mode. Please make sure that usbmuxd is running.` | Failed A8 SoC or SoC BGA | Hardware repair |
+
+The normal timeout messages look like this:
+
 ```
 ReverseProxy[Conn]: Received Ping command, replying with Pong
 ReverseProxy[Conn]: Connection closed
@@ -115,49 +176,48 @@ ReverseProxy[Conn]: (status=2) Terminated
 No data to read (timeout)
 No data to read (timeout)
 No data to read (timeout)
-No data to read (timeout)
-No data to read (timeout)
 ```
-* * This is normal and may take up to 10–15 minutes.
 
-Other Tips:
+I'm keeping a [spreadsheet of known errors and behaviors](https://docs.google.com/spreadsheets/d/1Fvoa8zhKQzLCrZxgvBHMtxuQuXDyvi9EKi9KwdjbxGo/edit?usp=sharing).
 
-* Is your HomePod upside down while attempting all of this?
-* Did you connect the HomePod's USB first, then connect power to HomePod?
-* Did you run `gaster pwn`, then `gaster reset`, then `idevicerestore -d -e YOUR.ipsw` all while your HomePod was connected, on, and upside down?
-* Restart your computer and try again from Restore Step 1.
-* If you get an `Unable to restore device` error because of `failure when attempting to flash the nitrogen firmware`, try again from step 1 and it should work.
-* `Waiting on NAND` followed by `storage device did not become available` and `Timeout waiting for NVRAM Service` usually means your NAND or NAND BGA has failed. 
-* `Possibly invalid iBec`, or `Device failed to enter restore mode. Please make sure that usbmuxd is running.` usually means your A8 SoC or SoC BGA has failed.
-* If you are not able to run `gaster pwn` with your HomePod, it's likely a hardware failure or bad USB connection.
+## Building your own .ipsw
 
-Basically, it _should_ restore successfully if it's purely a software brick, and your connection to the HomePod is good.
+This is optional. Only do it if you want to build an .ipsw yourself, and finish the [one-time setup](#one-time-setup) first. It may get easier in the future.
 
-I am working on a spreadhseet of known errors / behaviors here; https://docs.google.com/spreadsheets/d/1Fvoa8zhKQzLCrZxgvBHMtxuQuXDyvi9EKi9KwdjbxGo/edit?usp=sharing
+> [!NOTE]
+> See the [warning above](#will-this-fix-my-homepod). Versions newer than 18.3 may restore fine but boot loop after a reset.
 
-## How to build your own .ipsw
+**You'll need:**
 
-You don't need to do this, only if you want to try building an .ipsw yourself. Accomplish the prerequisites first. May get easier in the future.
+1. The latest `makeipsw.sh` from [tihmstar's homepodstuff repo](https://github.com/tihmstar/homepodstuff).
+2. The signed, **full** OTA .zip for `AudioAccessory1,1` from [ipsw.me](https://ipsw.me). Use the one with the full ramdisk, which is usually the largest one with no prerequisites.
+3. The signed, full .ipsw for `AppleTV5,3` of the **same version**, also from [ipsw.me](https://ipsw.me).
+   - Example for 21M71: [HomePod OTA .zip](https://ipsw.me/download/ota/AudioAccessory1,1/21M71?prerequisite=) and [Apple TV .ipsw](https://ipsw.me/download/AppleTV5,3/21M71)
+4. [`firmware_keys.zip`](firmware_keys.zip) from this repo. It has keys for builds `21L569`, `21M71`, `22J357`, `22J580`, `22K155`, `22K557`, `22L255`, `22L261`, `22L572`, `22M84`, `23J353` and `23J362` (17.5 through 26.0.1). Self-generated keys are planned for `makeipsw.sh`.
 
-1. Download the latest ./makeipsw.sh from [tihmstar's repo](https://github.com/tihmstar/homepodstuff)
-2. Download the desired signed, full OTA .zip for AudioAccessory1,1 (from ipsw.me). You need the one with the full ramdisk (usually the largest one with no prerequisites)
-3. Download the same version of the signed full .ipsw for AppleTV5,3 (from ipsw.me)
-* example: [this](https://ipsw.me/download/ota/AudioAccessory1,1/21M71?prerequisite=) for the ota.zip and [this](https://ipsw.me/download/AppleTV5,3/21M71) for the .ipsw file
-4. Download the `firmware_keys.zip` from this repo. Currently working for 17.5, 17.6, and 18.0. (new / self key generation coming soon to makeipsw.sh script)
-5. `chmod +x makeipsw.sh`
-6. `brew reinstall ra1nsn0w` (to ensure you have the latest version)
-7. `./makeipsw.sh PATH_TO_HOMEPOD_OTA.zip PATH_TO_APPLETV.ipsw PATH_TO_OUTPUT.ipsw PATH_TO_firmware_keys.zip`
-* Point the first path to the latest signed, FULL ota .zip for AudioAccessory1,1 file you downloaded
-* Point the second path to the latest signed, FULL .ipsw for AppleTV5,3 file you downloaded
-* Point the third path to where you want your .ipsw to be output, along with a name (like ~\Desktop\nic\homepod.ipsw)
-* Point the fourth path to where you downloaded the keys.zip file from this repo
+**Then run:**
 
+```sh
+chmod +x makeipsw.sh
+brew reinstall ra1nsn0w   # make sure you have the latest version
+./makeipsw.sh PATH_TO_HOMEPOD_OTA.zip PATH_TO_APPLETV.ipsw PATH_TO_OUTPUT.ipsw PATH_TO_firmware_keys.zip
+```
 
-## Credit
-Huge thanks to thimstar, and David Ryskalczyk, for making all of this happen. Consider donating to them if you found this helpful! I do the easy work, making the how-to's, testing, support, and attempting to keep things up to date. 
+| Argument | Points to |
+| --- | --- |
+| `PATH_TO_HOMEPOD_OTA.zip` | The full `AudioAccessory1,1` OTA .zip you downloaded |
+| `PATH_TO_APPLETV.ipsw` | The full `AppleTV5,3` .ipsw you downloaded |
+| `PATH_TO_OUTPUT.ipsw` | Where to save the new .ipsw, including its name (for example `~/Desktop/homepod.ipsw`) |
+| `PATH_TO_firmware_keys.zip` | The `firmware_keys.zip` from this repo |
 
-* https://github.com/tihmstar
-* https://www.patreon.com/tihmstar
+## Credits
+
+Huge thanks to **tihmstar** and **David Ryskalczyk** for making all of this possible. If this helped you, consider supporting them! I do the easy part: the how-tos, testing, support and keeping things up to date. Shout out to Claude for rewriting some of the guide, making it a little easier for everyone to read.
 
 
-### Looking for more HomePod repairs? Visit https://nicsfix.com or join my discord server for more help at https://discord.gg/nicsfix
+- tihmstar: [GitHub](https://github.com/tihmstar) · [Patreon](https://www.patreon.com/tihmstar)
+- David Ryskalczyk: [GitHub](https://github.com/d235j)
+
+---
+
+**Need more HomePod repairs?** Visit [nicsfix.com](https://nicsfix.com) or join the [Discord](https://discord.gg/nicsfix) for help.
